@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Informes Médicos</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header section */
+        .filters-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .filters-header {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .filter-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        /* Report cards */
+        .report-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .report-id {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .report-title {
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            font-size: 1.4em;
+        }
+
+        .detail-item {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #eee;
+            margin: 20px 0;
+        }
+
+        .details-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .filters-header {
+                display: none;
+            }
+
+            .filter-btn {
+                width: 100%;
+                padding: 12px;
+            }
+
+            .report-card {
+                padding: 20px;
+            }
+
+            .report-title {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mis informes</h1>
+        
+        <div class="filters-section">
+            <div class="filters-header">
+                <span>Id.</span>
+                <span>Centro</span>
+                <span>Profesional</span>
+                <span>Especialidad</span>
+                <span>Fecha desde</span>
+                <span>Fecha hasta</span>
+            </div>
+            <button class="filter-btn">Aplicar filtros</button>
+        </div>
+
+        <!-- Report 1 -->
+        <div class="report-card">
+            <div class="report-id">Id. informe: 20939676</div>
+            <h2 class="report-title">Resonancia Magnética</h2>
+            <div class="detail-item"><strong>Fecha:</strong> 17/12/2024 17:45</div>
+            <div class="detail-item"><strong>Centro médico:</strong> Víthas Alicante</div>
+            <div class="detail-item"><strong>Profesional médico:</strong> Juan Martínez Fernández</div>
+            <div class="detail-item"><strong>Especialidad médica:</strong> Traumatología</div>
+            <div class="detail-item"><strong>Provincia:</strong> Alicante</div>
+            <div class="detail-item"><strong>Municipio:</strong> San Vicente del Raspeig</div>
+            <hr>
+            <a href="#" class="details-link">Ver Detalles</a>
+        </div>
+
+        <!-- Report 2 -->
+        <div class="report-card">
+            <div class="report-id">Id. informe: 37142984</div>
+            <h2 class="report-title">Biopsia de piel</h2>
+            <div class="detail-item"><strong>Fecha:</strong> 12/10/2024 16:30</div>
+            <div class="detail-item"><strong>Centro médico:</strong> Quirón Salud Alicante</div>
+            <div class="detail-item"><strong>Profesional médico:</strong> Laura Sánchez Rodríguez</div>
+            <div class="detail-item"><strong>Especialidad médica:</strong> Dermatología</div>
+            <div class="detail-item"><strong>Provincia:</strong> Alicante</div>
+            <div class="detail-item"><strong>Municipio:</strong> Altea</div>
+            <hr>
+            <a href="#" class="details-link">Ver Detalles</a>
+        </div>
+
+        <!-- Report 3 -->
+        <div class="report-card">
+            <div class="report-id">Id. informe: 75138715</div>
+            <h2 class="report-title">Cateterismo cardíaco</h2>
+            <div class="detail-item"><strong>Fecha:</strong> 06/09/2024 11:15</div>
+            <div class="detail-item"><strong>Centro médico:</strong> Adesías Ciudad Real</div>
+            <div class="detail-item"><strong>Profesional médico:</strong> Carlos Hernández Ruiz</div>
+            <div class="detail-item"><strong>Especialidad médica:</strong> Cardiología</div>
+            <div class="detail-item"><strong>Provincia:</strong> Ciudad Real</div>
+            <div class="detail-item"><strong>Municipio:</strong> Puertoliano</div>
+            <hr>
+            <a href="#" class="details-link">Ver Detalles</a>
+        </div>
+    </div>
+</body>
+</html>

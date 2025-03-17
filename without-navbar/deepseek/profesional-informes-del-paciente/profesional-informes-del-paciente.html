@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informes del Paciente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .report {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .report:last-child {
+            border-bottom: none;
+        }
+
+        .report h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .report p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .report .title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #000;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .report h2 {
+                font-size: 1.1em;
+            }
+
+            .report p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Informes del paciente con DNI: 67890123T</h1>
+
+        <div class="report">
+            <h2>Id. informe: 20939676</h2>
+            <p class="title">Resonancia Magnética</p>
+            <p>Fecha: 17/12/2024 17:45</p>
+            <p>Centro médico: Vilhas Alicante</p>
+            <p>Profesional médico: Juan Martínez Fernández</p>
+            <p>Especialidad médica: Traumatología</p>
+            <p>Provincia: Alicante</p>
+            <p>Municipio: San Vicente del Raspeig</p>
+        </div>
+
+        <div class="report">
+            <h2>Id. informe: 37142984</h2>
+            <p class="title">Biopsia de piel</p>
+            <p>Fecha: 12/10/2024 16:30</p>
+            <p>Centro médico: Quirón Salud Alicante</p>
+            <p>Profesional médico: Laura Sánchez Rodríguez</p>
+            <p>Especialidad médica: Dermatología</p>
+            <p>Provincia: Alicante</p>
+            <p>Municipio: Altea</p>
+        </div>
+
+        <div class="report">
+            <h2>Id. informe: 75138715</h2>
+            <p class="title">Cafeterismo cardíaco</p>
+            <p>Fecha: 06/09/2024 11:15</p>
+            <p>Centro médico: Adesias Ciudad Real</p>
+            <p>Profesional médico: Carlos Hernández Ruiz</p>
+            <p>Especialidad médica: Cardiología</p>
+            <p>Provincia: Ciudad Real</p>
+            <p>Municipio: Puertoliano</p>
+        </div>
+    </div>
+</body>
+</html>

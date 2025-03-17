@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Reports</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d5c3f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #f5f1ff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 18px;
+        }
+
+        h1 span {
+            color: #6a0dad;
+            font-weight: bold;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            background: #c2a4f4;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .filters input,
+        .filters button {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .filters input {
+            flex: 1;
+        }
+
+        .filters button {
+            background-color: #6a0dad;
+            color: white;
+            cursor: pointer;
+        }
+
+        .filters button:hover {
+            background-color: #5a0cb2;
+        }
+
+        /* Create New Report Button */
+        .new-report-btn {
+            display: block;
+            width: 100%;
+            background: #6a0dad;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .new-report-btn:hover {
+            background: #5a0cb2;
+        }
+
+        /* Report Cards */
+        .report-card {
+            background: white;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .report-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .report-details {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .report-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn.edit {
+            background: #6a0dad;
+            color: white;
+        }
+
+        .btn.details {
+            background: #6a0dad;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .filters {
+                flex-direction: column;
+            }
+
+            .filters input {
+                width: 100%;
+            }
+
+            .report-actions {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Informes del paciente con DNI: <span>67890123T</span></h1>
+
+    <!-- Filters Section -->
+    <div class="filters">
+        <input type="text" placeholder="Id">
+        <input type="text" placeholder="Centro">
+        <input type="text" placeholder="Profesional">
+        <input type="text" placeholder="Especialidad">
+        <input type="date">
+        <input type="date">
+        <input type="checkbox"> Propios
+        <button>Aplicar filtros</button>
+    </div>
+
+    <!-- Create New Report -->
+    <button class="new-report-btn">Crear nuevo informe</button>
+
+    <!-- Report Cards -->
+    <div class="report-card">
+        <p class="report-title">Id. informe: 20939676</p>
+        <p class="report-details">
+            <strong>Título:</strong> Resonancia Magnética<br>
+            <strong>Fecha:</strong> 17/12/2024 17:45<br>
+            <strong>Centro médico:</strong> Vithas Alicante<br>
+            <strong>Profesional médico:</strong> Juan Martínez Fernández<br>
+            <strong>Especialidad médica:</strong> Traumatología<br>
+            <strong>Provincia:</strong> Alicante<br>
+            <strong>Municipio:</strong> San Vicente del Raspeig
+        </p>
+        <div class="report-actions">
+            <button class="btn edit">Editar</button>
+            <button class="btn details">Ver Detalles</button>
+        </div>
+    </div>
+
+    <div class="report-card">
+        <p class="report-title">Id. informe: 37142984</p>
+        <p class="report-details">
+            <strong>Título:</strong> Biopsia de piel<br>
+            <strong>Fecha:</strong> 12/10/2024 16:30<br>
+            <strong>Centro médico:</strong> Quirón Salud Alicante<br>
+            <strong>Profesional médico:</strong> Laura Sánchez Rodríguez<br>
+            <strong>Especialidad médica:</strong> Dermatología<br>
+            <strong>Provincia:</strong> Alicante<br>
+            <strong>Municipio:</strong> Altea
+        </p>
+        <div class="report-actions">
+            <button class="btn edit">Editar</button>
+            <button class="btn details">Ver Detalles</button>
+        </div>
+    </div>
+
+    <div class="report-card">
+        <p class="report-title">Id. informe: 75138715</p>
+        <p class="report-details">
+            <strong>Título:</strong> Cateterismo cardíaco<br>
+            <strong>Fecha:</strong> 06/09/2024 11:15<br>
+            <strong>Centro médico:</strong> Adeslas Ciudad Real<br>
+            <strong>Profesional médico:</strong> Carlos Hernández Ruiz<br>
+            <strong>Especialidad médica:</strong> Cardiología<br>
+            <strong>Provincia:</strong> Ciudad Real<br>
+            <strong>Municipio:</strong> Puertollano
+        </p>
+        <div class="report-actions">
+            <button class="btn edit">Editar</button>
+            <button class="btn details">Ver Detalles</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

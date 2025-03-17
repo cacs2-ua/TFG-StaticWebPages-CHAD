@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informes del Paciente</title>
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Container styling */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        /* Heading style */
+        .patient-header {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        /* Report card styling */
+        .report-card {
+            background-color: #ffffff;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ecf0f1;
+        }
+
+        /* Report field styling */
+        .report-field {
+            margin: 12px 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .field-label {
+            color: #7f8c8d;
+            min-width: 180px;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+
+        .field-value {
+            color: #2c3e50;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+
+            .patient-header {
+                font-size: 20px;
+            }
+
+            .field-label {
+                min-width: 140px;
+                margin-bottom: 5px;
+            }
+
+            .report-card {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .field-label,
+            .field-value {
+                min-width: 100%;
+            }
+            
+            .field-label {
+                margin-bottom: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="patient-header">Informes del paciente con DNI: 67890123T</h1>
+
+        <!-- First Report -->
+        <div class="report-card">
+            <div class="report-field">
+                <span class="field-label">Id. informe:</span>
+                <span class="field-value">20939676</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Título:</span>
+                <span class="field-value">Resonancia Magnética</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Fecha:</span>
+                <span class="field-value">17/12/2024 17:45</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Centro médico:</span>
+                <span class="field-value">Vilhas Alicante</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Profesional médico:</span>
+                <span class="field-value">Juan Martínez Fernández</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Especialidad médica:</span>
+                <span class="field-value">Traumatología</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Provincia:</span>
+                <span class="field-value">Alicante</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Municipio:</span>
+                <span class="field-value">San Vicente del Raspeig</span>
+            </div>
+        </div>
+
+        <!-- Second Report -->
+        <div class="report-card">
+            <div class="report-field">
+                <span class="field-label">Id. informe:</span>
+                <span class="field-value">37142984</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Título:</span>
+                <span class="field-value">Biopsia de piel</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Fecha:</span>
+                <span class="field-value">12/10/2024 16:30</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Centro médico:</span>
+                <span class="field-value">Quirón Salud Alicante</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Profesional médico:</span>
+                <span class="field-value">Laura Sánchez Rodríguez</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Especialidad médica:</span>
+                <span class="field-value">Dermatología</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Provincia:</span>
+                <span class="field-value">Alicante</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Municipio:</span>
+                <span class="field-value">Altea</span>
+            </div>
+        </div>
+
+        <!-- Third Report -->
+        <div class="report-card">
+            <div class="report-field">
+                <span class="field-label">Id. informe:</span>
+                <span class="field-value">75138715</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Título:</span>
+                <span class="field-value">Cafeterismo cardíaco</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Fecha:</span>
+                <span class="field-value">06/09/2024 11:15</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Centro médico:</span>
+                <span class="field-value">Adesias Ciudad Real</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Profesional médico:</span>
+                <span class="field-value">Carlos Hernández Ruiz</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Especialidad médica:</span>
+                <span class="field-value">Cardiología</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Provincia:</span>
+                <span class="field-value">Ciudad Real</span>
+            </div>
+            <div class="report-field">
+                <span class="field-label">Municipio:</span>
+                <span class="field-value">Puertoliano</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

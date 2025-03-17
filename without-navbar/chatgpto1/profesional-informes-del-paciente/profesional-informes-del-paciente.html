@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Informes del paciente</title>
+  <style>
+    /* 
+      ================================================
+      Estilos base y para toda la página
+      ================================================
+    */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #EFE3FA; /* Un tono lila claro */
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: bold;
+    }
+
+    /* 
+      ================================================
+      Filtros y botones de acción en la parte superior
+      ================================================
+    */
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .filters input[type="text"],
+    .filters input[type="date"] {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .filters input[type="checkbox"] {
+      margin-right: 0.3rem;
+    }
+
+    .filters label {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .filters .btn-filter {
+      background-color: #7A3EE6; 
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .btn-new-report {
+      display: inline-block;
+      background-color: #7A3EE6; 
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    /* 
+      ================================================
+      Tarjetas (informes) 
+      ================================================
+    */
+
+    .report-card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .report-id {
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .report-info p {
+      margin: 0.3rem 0;
+    }
+    
+    .report-info p strong {
+      font-weight: 600;
+    }
+
+    .report-actions {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .report-actions button {
+      background-color: #7A3EE6; 
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    /* 
+      ================================================
+      Responsividad
+      ================================================
+    */
+
+    @media (max-width: 768px) {
+      .filters {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .filters input[type="text"],
+      .filters input[type="date"] {
+        width: 100%;
+      }
+
+      .report-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Título principal -->
+    <h1>Informes del paciente con DNI: 67890123T</h1>
+
+    <!-- Filtros de búsqueda -->
+    <div class="filters">
+      <input type="text" placeholder="Id" />
+      <input type="text" placeholder="Centro" />
+      <input type="text" placeholder="Profesional" />
+      <input type="text" placeholder="Especialidad" />
+      <input type="date" placeholder="Fecha desde" />
+      <input type="date" placeholder="Fecha hasta" />
+      <label>
+        <input type="checkbox" />
+        Propios
+      </label>
+      <button class="btn-filter">Aplicar filtros</button>
+    </div>
+
+    <!-- Botón para crear nuevo informe -->
+    <button class="btn-new-report">Crear nuevo informe</button>
+
+    <!-- Tarjeta 1 -->
+    <div class="report-card">
+      <div class="report-id">Id. informe: 20939676</div>
+      <div class="report-info">
+        <p><strong>Título:</strong> Resonancia Magnética</p>
+        <p><strong>Fecha:</strong> 17/12/2024 17:45</p>
+        <p><strong>Centro médico:</strong> Vithas Alicante</p>
+        <p><strong>Profesional médico:</strong> Juan Martínez Fernández</p>
+        <p><strong>Especialidad médica:</strong> Traumatología</p>
+        <p><strong>Provincia:</strong> Alicante</p>
+        <p><strong>Municipio:</strong> San Vicente del Raspeig</p>
+      </div>
+      <div class="report-actions">
+        <button>Editar</button>
+        <button>Ver Detalles</button>
+      </div>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="report-card">
+      <div class="report-id">Id. informe: 37142984</div>
+      <div class="report-info">
+        <p><strong>Título:</strong> Biopsia de piel</p>
+        <p><strong>Fecha:</strong> 12/10/2024 16:30</p>
+        <p><strong>Centro médico:</strong> Quirón Salud Alicante</p>
+        <p><strong>Profesional médico:</strong> Laura Sánchez Rodríguez</p>
+        <p><strong>Especialidad médica:</strong> Dermatología</p>
+        <p><strong>Provincia:</strong> Alicante</p>
+        <p><strong>Municipio:</strong> Altea</p>
+      </div>
+      <div class="report-actions">
+        <button>Editar</button>
+        <button>Ver Detalles</button>
+      </div>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="report-card">
+      <div class="report-id">Id. informe: 75138715</div>
+      <div class="report-info">
+        <p><strong>Título:</strong> Cateterismo cardíaco</p>
+        <p><strong>Fecha:</strong> 06/09/2024 11:15</p>
+        <p><strong>Centro médico:</strong> Adeslas Ciudad Real</p>
+        <p><strong>Profesional médico:</strong> Carlos Hernández Ruiz</p>
+        <p><strong>Especialidad médica:</strong> Cardiología</p>
+        <p><strong>Provincia:</strong> Ciudad Real</p>
+        <p><strong>Municipio:</strong> Puertollano</p>
+      </div>
+      <div class="report-actions">
+        <button>Editar</button>
+        <button>Ver Detalles</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

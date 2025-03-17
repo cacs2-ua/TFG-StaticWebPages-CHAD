@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Informes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filters {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .filters button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .report-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .report-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .report-card h2 {
+            margin-top: 0;
+        }
+
+        .report-card p {
+            margin: 5px 0;
+        }
+
+        .report-card a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .report-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mis informes</h1>
+        </div>
+
+        <div class="filters">
+            <button>Adjicar filtros</button>
+        </div>
+
+        <div class="report-list">
+            <div class="report-card">
+                <h2>Id. informe: 20939676</h2>
+                <p><strong>Título:</strong> Resonancia Magnética</p>
+                <p><strong>Fecha:</strong> 17/12/2024 17:45</p>
+                <p><strong>Centro médico:</strong> Víthas Alicante</p>
+                <p><strong>Profesional médico:</strong> Juan Martínez Fernández</p>
+                <p><strong>Especialidad médica:</strong> Traumatología</p>
+                <p><strong>Provincia:</strong> Alicante</p>
+                <p><strong>Municipio:</strong> San Vicente del Raspeig</p>
+                <a href="#">Ver Detalles</a>
+            </div>
+
+            <div class="report-card">
+                <h2>Id. informe: 37142984</h2>
+                <p><strong>Título:</strong> Biopsia de piel</p>
+                <p><strong>Fecha:</strong> 12/10/2024 16:30</p>
+                <p><strong>Centro médico:</strong> Quirón Salud Alicante</p>
+                <p><strong>Profesional médico:</strong> Laura Sánchez Rodríguez</p>
+                <p><strong>Especialidad médica:</strong> Dermatología</p>
+                <p><strong>Provincia:</strong> Alicante</p>
+                <p><strong>Municipio:</strong> Altea</p>
+                <a href="#">Ver Detalles</a>
+            </div>
+
+            <div class="report-card">
+                <h2>Id. informe: 75138715</h2>
+                <p><strong>Título:</strong> Cateterismo cardíaco</p>
+                <p><strong>Fecha:</strong> 06/09/2024 11:15</p>
+                <p><strong>Centro médico:</strong> Adesías Ciudad Real</p>
+                <p><strong>Profesional médico:</strong> Carlos Hernández Ruiz</p>
+                <p><strong>Especialidad médica:</strong> Cardiología</p>
+                <p><strong>Provincia:</strong> Ciudad Real</p>
+                <p><strong>Municipio:</strong> Puertoliano</p>
+                <a href="#">Ver Detalles</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

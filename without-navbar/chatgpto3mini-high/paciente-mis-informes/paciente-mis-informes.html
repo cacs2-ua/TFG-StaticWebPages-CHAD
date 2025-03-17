@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mis Informes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* Container principal */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Título principal */
+    .page-title {
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 1.8rem;
+      color: #333;
+    }
+
+    /* Sección de filtros */
+    .filter-section {
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    /* Formulario de filtros */
+    .filter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-end;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      min-width: 120px;
+      flex: 1;
+    }
+
+    .label-text {
+      margin-bottom: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .input-field {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .button-apply {
+      background-color: #4c8bf5;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-apply:hover {
+      background-color: #3c76d4;
+    }
+
+    /* Tarjetas de informes */
+    .report-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+      background-color: #fff;
+    }
+
+    .report-id {
+      font-weight: bold;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .report-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .report-info {
+      margin: 4px 0;
+      color: #555;
+    }
+
+    .button-details {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 16px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-details:hover {
+      background-color: #218838;
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .filter-form {
+        flex-direction: column;
+      }
+      .form-group {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="page-title">Mis Informes</h1>
+
+    <!-- Sección de filtros -->
+    <div class="filter-section">
+      <form class="filter-form">
+        <div class="form-group">
+          <label for="id" class="label-text">Id</label>
+          <input type="text" id="id" name="id" class="input-field" placeholder="Id" />
+        </div>
+        <div class="form-group">
+          <label for="centro" class="label-text">Centro</label>
+          <input type="text" id="centro" name="centro" class="input-field" placeholder="Centro" />
+        </div>
+        <div class="form-group">
+          <label for="profesional" class="label-text">Profesional</label>
+          <input type="text" id="profesional" name="profesional" class="input-field" placeholder="Profesional" />
+        </div>
+        <div class="form-group">
+          <label for="especialidad" class="label-text">Especialidad</label>
+          <input type="text" id="especialidad" name="especialidad" class="input-field" placeholder="Especialidad" />
+        </div>
+        <div class="form-group">
+          <label for="fecha-desde" class="label-text">Fecha desde</label>
+          <input type="date" id="fecha-desde" name="fecha-desde" class="input-field" />
+        </div>
+        <div class="form-group">
+          <label for="fecha-hasta" class="label-text">Fecha hasta</label>
+          <input type="date" id="fecha-hasta" name="fecha-hasta" class="input-field" />
+        </div>
+        <button type="submit" class="button-apply">Aplicar filtros</button>
+      </form>
+    </div>
+
+    <!-- Tarjeta 1 -->
+    <div class="report-card">
+      <div class="report-id">Id. informe: 20939676</div>
+      <div class="report-title">Título: Resonancia Magnética</div>
+      <p class="report-info">Fecha: 17/12/2024 17:45</p>
+      <p class="report-info">Centro médico: Vithas Alicante</p>
+      <p class="report-info">Profesional médico: Juan Martínez Franco</p>
+      <p class="report-info">Especialidad médica: Traumatología</p>
+      <p class="report-info">Municipio: San Vicente del Raspeig</p>
+      <button class="button-details">Ver Detalles</button>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="report-card">
+      <div class="report-id">Id. informe: 37142984</div>
+      <div class="report-title">Título: Biopsia de piel</div>
+      <p class="report-info">Fecha: 20/12/2030 16:30</p>
+      <p class="report-info">Centro médico: Quirón Salud Alicante</p>
+      <p class="report-info">Profesional médico: Laura Sánchez Rodríguez</p>
+      <p class="report-info">Especialidad médica: Dermatología</p>
+      <p class="report-info">Municipio: Altea</p>
+      <button class="button-details">Ver Detalles</button>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="report-card">
+      <div class="report-id">Id. informe: 75138715</div>
+      <div class="report-title">Título: Cateterismo cardíaco</div>
+      <p class="report-info">Fecha: 06/09/2021 14:30</p>
+      <p class="report-info">Centro médico: Adeslas Ciudad Real</p>
+      <p class="report-info">Profesional médico: Carlos Hernández Ruiz</p>
+      <p class="report-info">Especialidad médica: Cardiología</p>
+      <p class="report-info">Municipio: Puertollano</p>
+      <button class="button-details">Ver Detalles</button>
+    </div>
+  </div>
+</body>
+</html>

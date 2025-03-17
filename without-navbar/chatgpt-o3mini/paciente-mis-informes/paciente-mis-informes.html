@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mis Informes</title>
+  <style>
+    /* Global resets and basic styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F3E8FF; /* Soft purple background */
+      color: #333;
+    }
+
+    /* Container for the entire page */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Page header */
+    .header-title {
+      text-align: center;
+      font-size: 24px;
+      color: #4B0082;
+      margin-bottom: 30px;
+    }
+
+    /* Filter section */
+    .filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      min-width: 120px;
+    }
+
+    .filter-group label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .filter-group input {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #CCC;
+      border-radius: 4px;
+    }
+
+    /* Filter button */
+    .btn-filter {
+      background-color: #9B59B6;
+      color: #FFF;
+      border: none;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: flex-end;
+    }
+
+    .btn-filter:hover {
+      background-color: #8E44AD;
+    }
+
+    /* Report card style */
+    .report-card {
+      background-color: #FFF;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .report-card h2 {
+      color: #4B0082;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .report-details p {
+      font-size: 14px;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .report-details p strong {
+      font-weight: bold;
+    }
+
+    /* "Ver Detalles" button inside the report card */
+    .btn-details {
+      display: inline-block;
+      background-color: #7B4397;
+      color: #FFF;
+      border: none;
+      padding: 8px 12px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn-details:hover {
+      background-color: #693181;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .filter-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .filter-group {
+        width: 100%;
+      }
+
+      .filter-group input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Page title -->
+    <h1 class="header-title">Mis Informes</h1>
+
+    <!-- Filter section -->
+    <div class="filter-container">
+      <div class="filter-group">
+        <label for="filter-id">Id</label>
+        <input type="text" id="filter-id" placeholder="Id" />
+      </div>
+      <div class="filter-group">
+        <label for="filter-centro">Centro</label>
+        <input type="text" id="filter-centro" placeholder="Centro" />
+      </div>
+      <div class="filter-group">
+        <label for="filter-profesional">Profesional</label>
+        <input type="text" id="filter-profesional" placeholder="Profesional" />
+      </div>
+      <div class="filter-group">
+        <label for="filter-especialidad">Especialidad</label>
+        <input type="text" id="filter-especialidad" placeholder="Especialidad" />
+      </div>
+      <div class="filter-group">
+        <label for="filter-fecha-desde">Fecha desde</label>
+        <input type="date" id="filter-fecha-desde" />
+      </div>
+      <div class="filter-group">
+        <label for="filter-fecha-hasta">Fecha hasta</label>
+        <input type="date" id="filter-fecha-hasta" />
+      </div>
+      <button class="btn-filter">Aplicar filtros</button>
+    </div>
+
+    <!-- First report card -->
+    <div class="report-card">
+      <h2>Id. informe: 20939676</h2>
+      <div class="report-details">
+        <p><strong>Título:</strong> Resonancia Magnética</p>
+        <p><strong>Fecha:</strong> 17/12/2024 17:45</p>
+        <p><strong>Centro médico:</strong> Vithas Alicante</p>
+        <p><strong>Profesional médico:</strong> Juan Martínez Franco</p>
+        <p><strong>Especialidad médica:</strong> Traumatología</p>
+        <p><strong>Provincia:</strong> Alicante</p>
+        <p><strong>Municipio:</strong> San Vicente del Raspeig</p>
+      </div>
+      <button class="btn-details">Ver Detalles</button>
+    </div>
+
+    <!-- Second report card -->
+    <div class="report-card">
+      <h2>Id. informe: 37142984</h2>
+      <div class="report-details">
+        <p><strong>Título:</strong> Biopsia de piel</p>
+        <p><strong>Fecha:</strong> 20/12/2030 16:30</p>
+        <p><strong>Centro médico:</strong> Quirón Salud Alicante</p>
+        <p><strong>Profesional médico:</strong> Laura Sánchez Rodríguez</p>
+        <p><strong>Especialidad médica:</strong> Dermatología</p>
+        <p><strong>Provincia:</strong> Alicante</p>
+        <p><strong>Municipio:</strong> Altea</p>
+      </div>
+      <button class="btn-details">Ver Detalles</button>
+    </div>
+
+    <!-- Third report card -->
+    <div class="report-card">
+      <h2>Id. informe: 75138715</h2>
+      <div class="report-details">
+        <p><strong>Título:</strong> Cateterismo cardíaco</p>
+        <p><strong>Fecha:</strong> 06/09/2021 14:30</p>
+        <p><strong>Centro médico:</strong> Adeslas Ciudad Real</p>
+        <p><strong>Profesional médico:</strong> Carlos Hernández Ruiz</p>
+        <p><strong>Especialidad médica:</strong> Cardiología</p>
+        <p><strong>Provincia:</strong> Ciudad Real</p>
+        <p><strong>Municipio:</strong> Puertollano</p>
+      </div>
+      <button class="btn-details">Ver Detalles</button>
+    </div>
+  </div>
+</body>
+</html>
