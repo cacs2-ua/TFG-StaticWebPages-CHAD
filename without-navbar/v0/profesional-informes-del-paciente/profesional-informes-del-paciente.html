@@ -35,8 +35,19 @@
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .input-group label {
+            margin-bottom: 5px;
+            font-size: 14px;
         }
 
         .filter-input {
@@ -62,12 +73,12 @@
             order: 2; /* Coloca el checkbox debajo */
             width: 20px;
             height: 20px;
-            margin-right: 0; /* Eliminamos el margin-right para centrar */
+            margin: 0;
         }
 
         .checkbox-container span {
             order: 1; /* Coloca el span encima */
-            margin-bottom: 5px; /* Espacio entre el span y el checkbox */
+            margin-bottom: 5px;
         }
 
         .button-primary {
@@ -78,6 +89,7 @@
             padding: 8px 15px;
             cursor: pointer;
             font-weight: bold;
+            align-self: center;
         }
 
         .button-create {
@@ -163,15 +175,33 @@
         
         <!-- Filter Section -->
         <div class="filter-section">
-            <input type="text" class="filter-input" placeholder="Id">
-            <input type="text" class="filter-input" placeholder="Centro">
-            <input type="text" class="filter-input" placeholder="Profesional">
-            <input type="text" class="filter-input" placeholder="Especialidad">
-            <input type="date" class="filter-input date-input" placeholder="Fecha desde">
-            <input type="date" class="filter-input date-input" placeholder="Fecha hasta">
+            <div class="input-group">
+                <label for="input-id">Id</label>
+                <input type="text" id="input-id" class="filter-input">
+            </div>
+            <div class="input-group">
+                <label for="input-centro">Centro</label>
+                <input type="text" id="input-centro" class="filter-input">
+            </div>
+            <div class="input-group">
+                <label for="input-profesional">Profesional</label>
+                <input type="text" id="input-profesional" class="filter-input">
+            </div>
+            <div class="input-group">
+                <label for="input-especialidad">Especialidad</label>
+                <input type="text" id="input-especialidad" class="filter-input">
+            </div>
+            <div class="input-group">
+                <label for="input-fecha-desde">Fecha desde</label>
+                <input type="date" id="input-fecha-desde" class="filter-input date-input">
+            </div>
+            <div class="input-group">
+                <label for="input-fecha-hasta">Fecha hasta</label>
+                <input type="date" id="input-fecha-hasta" class="filter-input date-input">
+            </div>
             <div class="checkbox-container">
-                <input type="checkbox" class="checkbox-input" checked>
                 <span>Propios (checkbox)</span>
+                <input type="checkbox" class="checkbox-input" checked>
             </div>
             <button class="button-primary">Aplicar filtros</button>
         </div>
