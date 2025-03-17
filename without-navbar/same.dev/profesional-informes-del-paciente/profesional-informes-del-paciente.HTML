@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informes del Paciente</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      background-color: #e6e6fa;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      margin-bottom: 15px;
+    }
+    
+    .header h2 {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    
+    .dni {
+      font-weight: normal;
+    }
+    
+    .filter-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .filter-box {
+      background-color: white;
+      border: 1px solid #ccc;
+      height: 30px;
+      width: 40px;
+      flex-shrink: 0;
+    }
+    
+    .filter-label {
+      font-size: 12px;
+      width: 70px;
+      text-align: center;
+    }
+    
+    .date-filter {
+      width: 60px;
+    }
+    
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-left: 5px;
+    }
+    
+    .checkbox {
+      width: 20px;
+      height: 20px;
+      background-color: #8a56e8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+      margin-right: 3px;
+    }
+    
+    .checkbox .check {
+      color: white;
+      font-weight: bold;
+    }
+    
+    .button {
+      background-color: #8a56e8;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    
+    .button.primary {
+      background-color: #4032a8;
+    }
+    
+    .actions {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    
+    .report-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .report-header {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    .report-detail {
+      margin-bottom: 5px;
+      display: flex;
+    }
+    
+    .report-detail-label {
+      font-weight: bold;
+      margin-right: 5px;
+      min-width: 130px;
+    }
+    
+    .report-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>Informes del paciente con DNI: <span class="dni">67890123T</span></h2>
+    
+    <div class="filter-container">
+      <div>
+        <div class="filter-box"></div>
+        <div class="filter-label">Id</div>
+      </div>
+      
+      <div>
+        <div class="filter-box"></div>
+        <div class="filter-label">Centro</div>
+      </div>
+      
+      <div>
+        <div class="filter-box"></div>
+        <div class="filter-label">Profesional</div>
+      </div>
+      
+      <div>
+        <div class="filter-box"></div>
+        <div class="filter-label">Especialidad</div>
+      </div>
+      
+      <div>
+        <div class="filter-box date-filter"></div>
+        <div class="filter-label">Fecha desde</div>
+      </div>
+      
+      <div>
+        <div class="filter-box date-filter"></div>
+        <div class="filter-label">Fecha hasta</div>
+      </div>
+      
+      <div class="checkbox-container">
+        <div class="checkbox"><span class="check">✓</span></div>
+        <div class="filter-label">Propios (autocitados)</div>
+      </div>
+      
+      <button class="button">Aplicar filtros</button>
+    </div>
+  </div>
+  
+  <div class="actions">
+    <button class="button primary">Crear nuevo informe</button>
+  </div>
+  
+  <div class="report-card">
+    <div class="report-header">
+      Id. informe: 20939676
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Título:</div>
+      <div>Resonancia Magnética</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Fecha:</div>
+      <div>17/12/2024 17:45</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Centro médico:</div>
+      <div>Vithas Alicante</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Profesional médico:</div>
+      <div>Juan Martínez Fernández</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Especialidad médica:</div>
+      <div>Traumatología</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Provincia:</div>
+      <div>Alicante</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Municipio:</div>
+      <div>San Vicente del Raspeig</div>
+    </div>
+    
+    <div class="report-actions">
+      <button class="button">Editar</button>
+      <button class="button">Ver Detalles</button>
+    </div>
+  </div>
+  
+  <div class="report-card">
+    <div class="report-header">
+      Id. informe: 37142984
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Título:</div>
+      <div>Biopsia de piel</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Fecha:</div>
+      <div>12/10/2024 16:30</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Centro médico:</div>
+      <div>Quirón Salud Alicante</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Profesional médico:</div>
+      <div>Laura Sánchez Rodríguez</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Especialidad médica:</div>
+      <div>Dermatología</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Provincia:</div>
+      <div>Alicante</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Municipio:</div>
+      <div>Altea</div>
+    </div>
+    
+    <div class="report-actions">
+      <button class="button">Editar</button>
+      <button class="button">Ver Detalles</button>
+    </div>
+  </div>
+  
+  <div class="report-card">
+    <div class="report-header">
+      Id. informe: 75138715
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Título:</div>
+      <div>Cateterismo cardíaco</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Fecha:</div>
+      <div>06/09/2024 11:15</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Centro médico:</div>
+      <div>Adeslas Ciudad Real</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Profesional médico:</div>
+      <div>Carlos Hernández Ruiz</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Especialidad médica:</div>
+      <div>Cardiología</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Provincia:</div>
+      <div>Ciudad Real</div>
+    </div>
+    
+    <div class="report-detail">
+      <div class="report-detail-label">Municipio:</div>
+      <div>Puertollano</div>
+    </div>
+    
+    <div class="report-actions">
+      <button class="button">Editar</button>
+      <button class="button">Ver Detalles</button>
+    </div>
+  </div>
+</body>
+</html>

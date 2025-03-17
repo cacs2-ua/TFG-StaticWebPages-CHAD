@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informes del Paciente</title>
+    <style>
+        /* Custom CSS styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .page-container {
+            background-color: #e6e1f9;
+            min-height: 100vh;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .filter-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100px;
+            height: 35px;
+        }
+
+        .date-input {
+            width: 120px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checkbox-input {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .button-primary {
+            background-color: #9370db;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .button-create {
+            background-color: #3333cc;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            font-weight: bold;
+        }
+
+        .report-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .report-id {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .report-detail {
+            margin-bottom: 8px;
+        }
+
+        .report-detail strong {
+            font-weight: bold;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .button-edit {
+            background-color: #9370db;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .button-view {
+            background-color: #9370db;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-input {
+                width: 100%;
+            }
+            
+            .date-input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <h2 class="header">Informes del paciente con DNI: 67890123T</h2>
+        
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <input type="text" class="filter-input" placeholder="Id">
+            <input type="text" class="filter-input" placeholder="Centro">
+            <input type="text" class="filter-input" placeholder="Profesional">
+            <input type="text" class="filter-input" placeholder="Especialidad">
+            <input type="date" class="filter-input date-input" placeholder="Fecha desde">
+            <input type="date" class="filter-input date-input" placeholder="Fecha hasta">
+            <div class="checkbox-container">
+                <input type="checkbox" class="checkbox-input" checked>
+                <span>Propios (checkbox)</span>
+            </div>
+            <button class="button-primary">Aplicar filtros</button>
+        </div>
+        
+        <!-- Create New Report Button -->
+        <button class="button-create">Crear nuevo informe</button>
+        
+        <!-- Report Cards -->
+        <div class="report-card">
+            <div class="report-id">Id. informe: 20939676</div>
+            <div class="report-detail"><strong>Título:</strong> Resonancia Magnética</div>
+            <div class="report-detail"><strong>Fecha:</strong> 17/12/2024 17:45</div>
+            <div class="report-detail"><strong>Centro médico:</strong> Vithas Alicante</div>
+            <div class="report-detail"><strong>Profesional médico:</strong> Juan Martínez Fernández</div>
+            <div class="report-detail"><strong>Especialidad médica:</strong> Traumatología</div>
+            <div class="report-detail"><strong>Provincia:</strong> Alicante</div>
+            <div class="report-detail"><strong>Municipio:</strong> San Vicente del Raspeig</div>
+            <div class="button-container">
+                <button class="button-edit">Editar</button>
+                <button class="button-view">Ver Detalles</button>
+            </div>
+        </div>
+        
+        <div class="report-card">
+            <div class="report-id">Id. informe: 37142984</div>
+            <div class="report-detail"><strong>Título:</strong> Biopsia de piel</div>
+            <div class="report-detail"><strong>Fecha:</strong> 12/10/2024 16:30</div>
+            <div class="report-detail"><strong>Centro médico:</strong> Quirón Salud Alicante</div>
+            <div class="report-detail"><strong>Profesional médico:</strong> Laura Sánchez Rodríguez</div>
+            <div class="report-detail"><strong>Especialidad médica:</strong> Dermatología</div>
+            <div class="report-detail"><strong>Provincia:</strong> Alicante</div>
+            <div class="report-detail"><strong>Municipio:</strong> Altea</div>
+            <div class="button-container">
+                <button class="button-edit">Editar</button>
+                <button class="button-view">Ver Detalles</button>
+            </div>
+        </div>
+        
+        <div class="report-card">
+            <div class="report-id">Id. informe: 75138715</div>
+            <div class="report-detail"><strong>Título:</strong> Cateterismo cardíaco</div>
+            <div class="report-detail"><strong>Fecha:</strong> 06/09/2024 11:15</div>
+            <div class="report-detail"><strong>Centro médico:</strong> Adeslas Ciudad Real</div>
+            <div class="report-detail"><strong>Profesional médico:</strong> Carlos Hernández Ruiz</div>
+            <div class="report-detail"><strong>Especialidad médica:</strong> Cardiología</div>
+            <div class="report-detail"><strong>Provincia:</strong> Ciudad Real</div>
+            <div class="report-detail"><strong>Municipio:</strong> Puertollano</div>
+            <div class="button-container">
+                <button class="button-edit">Editar</button>
+                <button class="button-view">Ver Detalles</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

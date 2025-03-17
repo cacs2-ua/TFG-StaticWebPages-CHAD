@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Reports Interface</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            min-height: 100vh;
+            background-color: #f3f0ff;
+            padding: 1.5rem;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        /* Header styles */
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        .title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        /* Filter section styles */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        .filter-input {
+            width: 10rem;
+            height: 2.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            background-color: white;
+            padding: 0 0.75rem;
+        }
+
+        /* Button styles */
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #8b7ff9;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            background-color: #7a6de0;
+        }
+
+        .create-button {
+            margin-bottom: 2rem;
+        }
+
+        /* Report card styles */
+        .reports {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .report-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .report-id {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .report-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .report-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .bold {
+            font-weight: 600;
+        }
+
+        /* Icon styles */
+        .icon {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .filter-input {
+                width: 100%;
+            }
+
+            .report-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .report-actions {
+                width: 100%;
+                justify-content: stretch;
+            }
+
+            .report-actions .button {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Informes del paciente con DNI: 67890123T</h1>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label class="filter-label">Centro:</label>
+                    <input type="text" class="filter-input">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Profesional:</label>
+                    <input type="text" class="filter-input">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Especialidad:</label>
+                    <input type="text" class="filter-input">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Fecha desde:</label>
+                    <input type="date" class="filter-input">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Fecha hasta:</label>
+                    <input type="date" class="filter-input">
+                </div>
+                <button class="button">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 6h18M10 12h11M3 12h3M3 18h18M10 6h11M3 6h3"></path>
+                    </svg>
+                    Aplicar filtros
+                </button>
+            </div>
+
+            <button class="button create-button">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12h14"></path>
+                </svg>
+                Crear nuevo informe
+            </button>
+        </div>
+
+        <div class="reports">
+            <div class="report-card">
+                <div class="report-header">
+                    <div>
+                        <div class="report-id">
+                            <h2 class="bold">Id. informe:</h2>
+                            <span>20939676</span>
+                        </div>
+                        <div class="report-details">
+                            <p><span class="bold">Título:</span> Resonancia Magnética</p>
+                            <p><span class="bold">Fecha:</span> 17/12/2024 17:45</p>
+                            <p><span class="bold">Centro médico:</span> Vithas Alicante</p>
+                            <p><span class="bold">Profesional médico:</span> Juan Martínez Fernández</p>
+                            <p><span class="bold">Especialidad médica:</span> Traumatología</p>
+                            <p><span class="bold">Provincia:</span> Alicante</p>
+                            <p><span class="bold">Municipio:</span> San Vicente del Raspeig</p>
+                        </div>
+                    </div>
+                    <div class="report-actions">
+                        <button class="button">Editar</button>
+                        <button class="button">Ver Detalles</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-card">
+                <div class="report-header">
+                    <div>
+                        <div class="report-id">
+                            <h2 class="bold">Id. informe:</h2>
+                            <span>37142984</span>
+                        </div>
+                        <div class="report-details">
+                            <p><span class="bold">Título:</span> Biopsia de piel</p>
+                            <p><span class="bold">Fecha:</span> 12/10/2024 16:30</p>
+                            <p><span class="bold">Centro médico:</span> Quirón Salud Alicante</p>
+                            <p><span class="bold">Profesional médico:</span> Laura Sánchez Rodríguez</p>
+                            <p><span class="bold">Especialidad médica:</span> Dermatología</p>
+                            <p><span class="bold">Provincia:</span> Alicante</p>
+                            <p><span class="bold">Municipio:</span> Altea</p>
+                        </div>
+                    </div>
+                    <div class="report-actions">
+                        <button class="button">Editar</button>
+                        <button class="button">Ver Detalles</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-card">
+                <div class="report-header">
+                    <div>
+                        <div class="report-id">
+                            <h2 class="bold">Id. informe:</h2>
+                            <span>75138715</span>
+                        </div>
+                        <div class="report-details">
+                            <p><span class="bold">Título:</span> Cateterismo cardiaco</p>
+                            <p><span class="bold">Fecha:</span> 06/09/2024 11:15</p>
+                            <p><span class="bold">Centro médico:</span> Adeslas Ciudad Real</p>
+                            <p><span class="bold">Profesional médico:</span> Carlos Hernández Ruiz</p>
+                            <p><span class="bold">Especialidad médica:</span> Cardiología</p>
+                            <p><span class="bold">Provincia:</span> Ciudad Real</p>
+                            <p><span class="bold">Municipio:</span> Puertollano</p>
+                        </div>
+                    </div>
+                    <div class="report-actions">
+                        <button class="button">Editar</button>
+                        <button class="button">Ver Detalles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
