@@ -53,14 +53,21 @@
 
         .checkbox-container {
             display: flex;
+            flex-direction: column; /* Apilar elementos verticalmente */
             align-items: center;
             justify-content: center;
         }
 
-        .checkbox-input {
+        .checkbox-container .checkbox-input {
+            order: 2; /* Coloca el checkbox debajo */
             width: 20px;
             height: 20px;
-            margin-right: 5px;
+            margin-right: 0; /* Eliminamos el margin-right para centrar */
+        }
+
+        .checkbox-container span {
+            order: 1; /* Coloca el span encima */
+            margin-bottom: 5px; /* Espacio entre el span y el checkbox */
         }
 
         .button-primary {
