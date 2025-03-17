@@ -96,6 +96,12 @@
       font-weight: bold;
       align-self: center;
       margin-top: 1.40625rem; /* Changed from 22.5px */
+      transition: background-color 0.3s ease, transform 0.3s ease; /* NEW: Added transition */
+    }
+
+    .button-primary:hover {
+      background-color: #752CE0; /* NEW: Slightly darker shade */
+      transform: scale(1.05); /* NEW: Scale effect */
     }
 
     .button-create {
@@ -109,6 +115,12 @@
       display: block;
       font-weight: bold;
       margin-bottom: 1.875rem; /* Changed from 30px */
+      transition: background-color 0.3s ease, transform 0.3s ease; /* NEW: Added transition */
+    }
+
+    .button-create:hover {
+      background-color: #3B3BF0; /* NEW: Slightly darker shade */
+      transform: scale(1.05); /* NEW: Scale effect */
     }
 
     .report-card {
@@ -121,15 +133,13 @@
 
     .report-id {
       text-align: center;
-      /* NEW: Underline the entire "Id. informe: <number>" block */
-      text-decoration: underline;
+      text-decoration: underline; /* NEW: Underlined the entire block */
       margin-bottom: 0.9375rem; /* Changed from 15px */
       font-size: 1.125rem; /* Changed from 18px */
     }
 
-    /* NEW: Make report number normal weight */
     .report-number {
-      font-weight: normal;
+      font-weight: normal; /* NEW: Report number appears normal */
     }
 
     .report-detail {
@@ -156,6 +166,12 @@
       cursor: pointer;
       width: 7rem;
       font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease; /* NEW: Added transition */
+    }
+
+    .button-edit:hover {
+      background-color: #6A72D0; /* NEW: Hover effect */
+      transform: scale(1.05); /* NEW: Scale effect */
     }
 
     .button-view {
@@ -167,6 +183,12 @@
       cursor: pointer;
       width: 7rem;
       font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease; /* NEW: Added transition */
+    }
+
+    .button-view:hover {
+      background-color: #7AA2F0; /* NEW: Hover effect */
+      transform: scale(1.05); /* NEW: Scale effect */
     }
 
     /* Responsive styles */
