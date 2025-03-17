@@ -112,7 +112,7 @@
     }
 
     .report-card {
-      background-color: white;
+      background-color: #F5F3FF;
       border-radius: 0.625rem; /* Changed from 10px */
       padding: 1.25rem; /* Changed from 20px */
       margin-bottom: 1.875rem; /* Changed from 30px */
@@ -121,9 +121,15 @@
 
     .report-id {
       text-align: center;
-      font-weight: bold;
+      /* NEW: Underline the entire "Id. informe: <number>" block */
+      text-decoration: underline;
       margin-bottom: 0.9375rem; /* Changed from 15px */
       font-size: 1.125rem; /* Changed from 18px */
+    }
+
+    /* NEW: Make report number normal weight */
+    .report-number {
+      font-weight: normal;
     }
 
     .report-detail {
@@ -142,21 +148,25 @@
     }
 
     .button-edit {
-      background-color: #9370db;
-      color: white;
+      background-color: #7D82EA;
+      color: black;
       border: none;
       border-radius: 1.25rem; /* Changed from 20px */
       padding: 0.5rem 0.9375rem; /* Changed from 8px 15px */
       cursor: pointer;
+      width: 7rem;
+      font-weight: bold;
     }
 
     .button-view {
-      background-color: #9370db;
-      color: white;
+      background-color: #88A9FD;
+      color: black;
       border: none;
       border-radius: 1.25rem; /* Changed from 20px */
       padding: 0.5rem 0.9375rem; /* Changed from 8px 15px */
       cursor: pointer;
+      width: 7rem;
+      font-weight: bold;
     }
 
     /* Responsive styles */
@@ -218,7 +228,7 @@
     
     <!-- Report Cards -->
     <div class="report-card">
-      <div class="report-id">Id. informe: 20939676</div>
+      <div class="report-id"><strong>Id. informe:</strong> <span class="report-number">20939676</span></div>
       <div class="report-detail"><strong>Título:</strong> Resonancia Magnética</div>
       <div class="report-detail"><strong>Fecha:</strong> 17/12/2024 17:45</div>
       <div class="report-detail"><strong>Centro médico:</strong> Vithas Alicante</div>
@@ -233,7 +243,7 @@
     </div>
     
     <div class="report-card">
-      <div class="report-id">Id. informe: 37142984</div>
+      <div class="report-id"><strong>Id. informe:</strong> <span class="report-number">37142984</span></div>
       <div class="report-detail"><strong>Título:</strong> Biopsia de piel</div>
       <div class="report-detail"><strong>Fecha:</strong> 12/10/2024 16:30</div>
       <div class="report-detail"><strong>Centro médico:</strong> Quirón Salud Alicante</div>
@@ -248,7 +258,7 @@
     </div>
     
     <div class="report-card">
-      <div class="report-id">Id. informe: 75138715</div>
+      <div class="report-id"><strong>Id. informe:</strong> <span class="report-number">75138715</span></div>
       <div class="report-detail"><strong>Título:</strong> Cateterismo cardíaco</div>
       <div class="report-detail"><strong>Fecha:</strong> 06/09/2024 11:15</div>
       <div class="report-detail"><strong>Centro médico:</strong> Adeslas Ciudad Real</div>
