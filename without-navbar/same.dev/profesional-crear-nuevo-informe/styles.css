@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #e0d6ff; /* Light purple background */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: underline;
+}
+
+.form-container {
+    background-color: #5d3db7; /* Dark purple for the form container */
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.required::before {
+    content: "*";
+    color: #fff;
+    margin-right: 3px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.id-section {
+    display: flex;
+    align-items: center;
+}
+
+.id-section label {
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+
+.id-value {
+    font-weight: bold;
+}
+
+.attachments-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.upload-button {
+    width: 100%;
+    padding: 8px;
+    background-color: #4a4a4a;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.file-list {
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.file-item {
+    color: #0066cc;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+
+.file-item:hover {
+    text-decoration: underline;
+}
+
+.submit-section {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button {
+    background-color: #3a57ff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.submit-button:hover {
+    background-color: #2a47ef;
+}

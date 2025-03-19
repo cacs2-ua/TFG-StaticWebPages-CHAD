@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear nuevo informe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crear nuevo informe</h1>
+        <div class="form-wrapper">
+            <div class="form-group">
+                <label for="id-informe">Id. informe: 20939676</label>
+            </div>
+            <div class="form-group">
+                <label for="titulo-informe">*Titulo del informe:</label>
+                <input type="text" id="titulo-informe" value="Resonancia Magnética">
+            </div>
+            <div class="form-group">
+                <label for="descripcion">*Descripcion:</label>
+                <textarea id="descripcion">Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas del sistema músculo esquelético, realizado en el centro médico Vithas Alicante por el Dr. Juan Martinez Fernández, especialista en Traumatologia.</textarea>
+            </div>
+            <div class="form-group">
+                <label for="observaciones">Observaciones:</label>
+                <textarea id="observaciones">El informe muestra hallazgos compatibles con el diagnóstico inicial. Se recomienda complementar con exploración clinica y posibles pruebas adicionales silos sintomas persisten o se agravan.</textarea>
+            </div>
+            <div class="form-group">
+                <label>Ficheros adjuntos</label>
+                <div class="file-upload">
+                    <button class="upload-button">Adjuntar Ficheros</button>
+                    <div class="file-list">
+                        <a href="#" class="file">Imagenes_RMN.pdf</a>
+                        <a href="#" class="file">Diagnostico_Preliminar.pdf</a>
+                        <a href="#" class="file">Recomendaciones_Clinicas.pdf</a>
+                        <a href="#" class="file">Analisis_Comparativo.pdf</a>
+                    </div>
+                </div>
+            </div>
+            <button class="submit-button">Enviar</button>
+        </div>
+    </div>
+</body>
+</html>

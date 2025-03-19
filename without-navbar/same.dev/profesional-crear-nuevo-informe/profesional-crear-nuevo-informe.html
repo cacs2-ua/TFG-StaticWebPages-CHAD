@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Informes Médicos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crear nuevo informe</h1>
+
+        <div class="form-container">
+            <div class="form-group id-section">
+                <label for="id">Id. informe: </label>
+                <span class="id-value">20939676</span>
+            </div>
+
+            <div class="form-group">
+                <label for="titulo" class="required">Título del informe:</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Resonancia Magnética" required>
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion" class="required">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" rows="5" required placeholder="Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas de sistema músculo-esquelético. Realizado en el Hospital Vithas Alicante por el Dr. Juan Martínez Fernández, especialista en traumatología."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="observaciones">Observaciones:</label>
+                <textarea id="observaciones" name="observaciones" rows="5" placeholder="El informe muestra hallazgos compatibles con el diagnóstico inicial. Se recomienda seguimiento para exploración clínica y posibles pruebas adicionales si los síntomas persisten o se agravan."></textarea>
+            </div>
+
+            <div class="attachments-section">
+                <h2>Ficheros adjuntos</h2>
+                <div class="file-upload">
+                    <button class="upload-button">Adjuntar Ficheros ↓</button>
+                </div>
+                <div class="file-list">
+                    <a href="#" class="file-item">Imagenes_RMN.pdf</a>
+                    <a href="#" class="file-item">Diagnostico_Preliminar.pdf</a>
+                    <a href="#" class="file-item">Recomendaciones_Clinicas.pdf</a>
+                    <a href="#" class="file-item">Analisis_Comparativo.pdf</a>
+                </div>
+            </div>
+
+            <div class="submit-section">
+                <button type="submit" class="submit-button">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

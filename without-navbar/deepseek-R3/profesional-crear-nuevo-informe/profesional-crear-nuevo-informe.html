@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Informe Médico</title>
+    <style>
+        /* Base styles */
+        :root {
+            font-size: 16px;
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --border-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 0.8rem;
+            box-shadow: 0 0.2rem 1rem rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+
+        /* Header section */
+        .report-header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .report-id {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        /* Form elements */
+        .form-field {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.4rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Observations section */
+        .observations {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 0.4rem;
+            margin: 1.5rem 0;
+        }
+
+        /* Attachments section */
+        .attachments-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .attachment-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border-radius: 0.4rem;
+            transition: transform 0.2s ease;
+        }
+
+        .attachment-item:hover {
+            transform: translateX(0.5rem);
+        }
+
+        /* Submit button */
+        .submit-btn {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="report-header">
+            <h1>Crear nuevo informe</h1>
+            <div class="report-id">Id. Informe: 20939676</div>
+        </header>
+
+        <div class="form-field">
+            <label>Título del informe:</label>
+            <input type="text" value="[Recorrería Mapélica]" readonly>
+        </div>
+
+        <div class="form-field">
+            <label>Descripción:</label>
+            <textarea rows="4" readonly>Informe de recorrería mapélica solicitado para actuar posibles lesiones dramáticas del sistema mascado-arqualético, realizada en el centro archivo Vime, Mizante and C.C., Jun Marines Fernández, especialista en Traumatología.</textarea>
+        </div>
+
+        <section class="observations">
+            <h3>Observaciones:</h3>
+            <p>El informe muestra hallazgos competitivos con el diagnóstico inicial. Se recomienda complementar con aplicación a única y posible pérdida adicionales si su síntoma persistirá o se agrivan.</p>
+        </section>
+
+        <section class="attachments">
+            <h3>Ficheros adjuntos</h3>
+            <ul class="attachments-list">
+                <li class="attachment-item">💤 Adjuntar Ficheros</li>
+                <li class="attachment-item">Imagenes_BMN.pdf</li>
+                <li class="attachment-item">Diagnostico_Preliminar.pdf</li>
+                <li class="attachment-item">Recomendaciones_Clinicas.pdf</li>
+                <li class="attachment-item">Analisis_Comparativo.pdf</li>
+            </ul>
+
+            <button type="submit" class="submit-btn">Enviar</button>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear nuevo informe</title>
+  <style>
+    :root {
+      /* You can adjust these root variables as needed */
+      --page-bg-color: #E6E0FB;
+      --container-bg-color: #7B45C0;
+      --text-color-light: #FFFFFF;
+      --text-color-dark: #000000;
+      --button-bg-color: #5B21B6;
+      --font-stack: sans-serif;
+    }
+
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: var(--font-stack);
+      background-color: var(--page-bg-color);
+      color: var(--text-color-dark);
+    }
+
+    /* Page Title */
+    .page-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Container */
+    .container {
+      max-width: 40rem; /* ~640px, a comfortable width for reading */
+      margin: 0 auto 2rem auto;
+      background-color: var(--container-bg-color);
+      border-radius: 0.5rem;
+      padding: 2rem;
+      color: var(--text-color-light);
+    }
+
+    .informe-id {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .informe-id span {
+      font-weight: bold;
+    }
+
+    /* Form groups */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Inputs and textareas */
+    .input-field,
+    .textarea-field,
+    .select-field {
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+      color: var(--text-color-dark);
+    }
+    .input-field:focus,
+    .textarea-field:focus,
+    .select-field:focus {
+      outline: 2px solid #ccc;
+    }
+    .textarea-field {
+      resize: vertical;
+      min-height: 6rem;
+    }
+
+    /* Files section */
+    .files-section {
+      margin-top: 2rem;
+    }
+    .files-section label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .file-link {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-color-light);
+      text-decoration: underline;
+      font-size: 0.95rem;
+    }
+
+    /* Submit button */
+    .submit-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 2rem;
+      background-color: var(--button-bg-color);
+      color: var(--text-color-light);
+      border: none;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    /* Responsive behavior for small screens */
+    @media (max-width: 600px) {
+      .page-title {
+        font-size: 1.5rem;
+      }
+      .container {
+        margin: 1rem;
+        padding: 1rem;
+      }
+      .submit-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page Title -->
+  <h1 class="page-title">Crear nuevo informe</h1>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- ID Info -->
+    <div class="informe-id">
+      <span>Id. informe:</span> 20939676
+    </div>
+
+    <!-- Form -->
+    <form>
+      <!-- Título del informe -->
+      <div class="form-group">
+        <label for="titulo">*Título del informe:</label>
+        <input 
+          class="input-field" 
+          type="text" 
+          id="titulo" 
+          name="titulo" 
+          placeholder="Resonancia Magnética"
+        />
+      </div>
+
+      <!-- Descripción -->
+      <div class="form-group">
+        <label for="descripcion">*Descripción:</label>
+        <textarea
+          class="textarea-field"
+          id="descripcion"
+          name="descripcion"
+          placeholder="Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas del sistema musculoesquelético..."
+        ></textarea>
+      </div>
+
+      <!-- Observaciones -->
+      <div class="form-group">
+        <label for="observaciones">Observaciones:</label>
+        <textarea
+          class="textarea-field"
+          id="observaciones"
+          name="observaciones"
+          placeholder="El informe muestra hallazgos compatibles con el diagnóstico inicial..."
+        ></textarea>
+      </div>
+
+      <!-- Ficheros Adjuntos -->
+      <div class="files-section">
+        <label for="file-input">Ficheros adjuntos:</label>
+        <select class="select-field" id="file-input" name="file-input">
+          <option>Adjuntar Ficheros</option>
+        </select>
+        <a href="#" class="file-link">Imagenes_RMN.pdf</a>
+        <a href="#" class="file-link">Diagnostico_Preliminar.pdf</a>
+        <a href="#" class="file-link">Recomendaciones_Clinicas.pdf</a>
+        <a href="#" class="file-link">Analisis_Comparativo.pdf</a>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>

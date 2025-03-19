@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nuevo Informe</title>
+    <style>
+        /* --- General Styles --- */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        /* --- Header Styles --- */
+        .form-title {
+            text-align: center;
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* --- Report ID Styles --- */
+        .report-id {
+            background-color: #e9ecef;
+            color: #555;
+            padding: 0.8rem;
+            border-radius: 0.3rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* --- Form Group Styles --- */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .required-label::before {
+            content: "* ";
+            color: red;
+        }
+
+        .input-field,
+        .textarea-field {
+            width: calc(100% - 1rem); /* Subtract padding */
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.3rem;
+            font-size: 0.9rem;
+            box-sizing: border-box; /* Ensure padding doesn't increase the element's size */
+        }
+
+        .textarea-field {
+            min-height: 4rem;
+        }
+
+        /* --- File Attachments Styles --- */
+        .section-label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: #333;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .file-upload-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-button {
+            background-color: #007bff;
+            color: white;
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .upload-button:hover {
+            background-color: #0056b3;
+        }
+
+        .file-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .file-list li {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 0.4rem 0.6rem;
+            border-radius: 0.3rem;
+            margin-bottom: 0.3rem;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* --- Submit Button Styles --- */
+        .submit-button {
+            background-color: #28a745;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .submit-button:hover {
+            background-color: #1e7e34;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 1.5rem;
+            }
+
+            .form-title {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+
+            .report-id {
+                padding: 0.6rem;
+                margin-bottom: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .form-group label {
+                font-size: 0.8rem;
+            }
+
+            .input-field,
+            .textarea-field {
+                padding: 0.4rem;
+                font-size: 0.8rem;
+            }
+
+            .section-label {
+                font-size: 0.9rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .upload-button {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .file-list li {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.5rem;
+            }
+
+            .submit-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-title">Crear nuevo informe</h1>
+        <div class="report-id">Id. informe: 20939676</div>
+        <form class="new-report-form">
+            <div class="form-group">
+                <label for="report-title" class="required-label">Titulo del informe :</label>
+                <input type="text" id="report-title" class="input-field" value="Resonancia Magnética">
+            </div>
+            <div class="form-group">
+                <label for="report-description" class="required-label">Descripcion :</label>
+                <textarea id="report-description" class="textarea-field">Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas del sistema músculo esquelético , realizado en el centro médico Vithas Alicante por el Dr. Juan Martinez Fernández , especialista en Traumatologia</textarea>
+            </div>
+            <div class="form-group">
+                <label for="report-observations">Observaciones :</label>
+                <textarea id="report-observations" class="textarea-field">El informe muestra hallazgos compatibles con el diagnóstico inicial . Se recomienda complementar con exploración clinica y posibles pruebas adicionales silos sintomas persisten o se agravan</textarea>
+            </div>
+            <div class="form-group">
+                <label class="section-label">Ficheros adjuntos</label>
+                <div class="file-upload-section">
+                    <button class="upload-button">Adjuntar Ficheros</button>
+                    <ul class="file-list">
+                        <li>Imagenes RMN.pdf</li>
+                        <li>Diagnostico Preliminar.pdf</li>
+                        <li>Recomendaciones_Clinicas.pdf</li>
+                        <li>Analisis Comparativo.pdf</li>
+                    </ul>
+                </div>
+            </div>
+            <button type="submit" class="submit-button">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

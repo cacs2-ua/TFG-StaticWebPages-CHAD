@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Informe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d1c4f3;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #6a0dad;
+            width: 90%;
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border-radius: 10px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .id-info {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .id-info a {
+            color: #bbaafc;
+            text-decoration: none;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            text-align: left;
+            margin: 1rem 0 0.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: none;
+        }
+
+        textarea {
+            height: 80px;
+        }
+
+        .file-section {
+            margin-top: 1rem;
+        }
+
+        .file-section button {
+            background-color: white;
+            color: black;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+        }
+
+        .file-list {
+            background-color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .file-list a {
+            display: block;
+            text-decoration: none;
+            color: #6a0dad;
+            margin: 0.5rem 0;
+            font-weight: bold;
+        }
+
+        .submit-button {
+            background-color: #4a00a0;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crear nuevo <strong>informe</strong></h1>
+    <div class="container">
+        <div class="id-info">
+            <strong>Id. informe:</strong> <a href="#">20939676</a>
+        </div>
+        <label for="title">*Título del informe:</label>
+        <input type="text" id="title" value="Resonancia Magnética">
+
+        <label for="description">*Descripción:</label>
+        <textarea id="description">Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas del sistema musculoesquelético...</textarea>
+        
+        <label for="observations">Observaciones:</label>
+        <textarea id="observations">El informe muestra hallazgos compatibles con el diagnóstico inicial...</textarea>
+
+        <div class="file-section">
+            <h3>Ficheros adjuntos</h3>
+            <button>Adjuntar Ficheros ⌄</button>
+            <div class="file-list">
+                <a href="#">Imagenes_RMN.pdf</a>
+                <a href="#">Diagnostico_Preliminar.pdf</a>
+                <a href="#">Recomendaciones_Clinicas.pdf</a>
+                <a href="#">Analisis_Comparativo.pdf</a>
+            </div>
+        </div>
+
+        <button class="submit-button">Enviar</button>
+    </div>
+</body>
+</html>

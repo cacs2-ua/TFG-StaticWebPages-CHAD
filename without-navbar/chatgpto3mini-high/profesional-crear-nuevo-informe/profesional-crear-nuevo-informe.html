@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crear nuevo informe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      /* You can adjust these colors or font sizes as needed */
+      --main-bg-color: #6c5ce7;      /* Page background */
+      --container-bg-color: #a29bfe; /* Container background */
+      --label-color: #ffffff;        /* Label text color */
+      --text-color: #333333;         /* Input and main text color */
+      --button-bg-color: #4b0082;    /* Button background color */
+      --button-text-color: #ffffff;  /* Button text color */
+      --border-radius: 0.5rem;
+      --spacing: 1rem;
+      --font-size-base: 1rem;
+      --max-width-container: 30rem;
+    }
+
+    html {
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      font-size: var(--font-size-base);
+      background-color: var(--main-bg-color);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: var(--container-bg-color);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      width: 90%;
+      max-width: var(--max-width-container);
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      color: #000000; /* You can set this to white (#fff) if you prefer */
+    }
+
+    /* Simple styling for ID info (read-only or plain text) */
+    .id-info {
+      margin-bottom: var(--spacing);
+      font-weight: bold;
+      color: #000000; /* Contrasts with the container background */
+    }
+
+    .form-group {
+      margin-bottom: var(--spacing);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      margin-bottom: 0.5rem;
+      color: var(--label-color);
+      font-weight: bold;
+    }
+
+    .form-group input[type="text"],
+    .form-group textarea {
+      padding: 0.5rem;
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      width: 100%;
+      color: var(--text-color);
+    }
+
+    /* Make textareas look consistent */
+    .form-group textarea {
+      resize: vertical;
+      min-height: 4rem;
+    }
+
+    .attach-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .attach-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: var(--border-radius);
+      background-color: var(--button-bg-color);
+      color: var(--button-text-color);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .file-list {
+      list-style: none;
+      margin: 0.5rem 0 0 0;
+      padding: 0;
+      color: #000000;
+    }
+
+    .file-list li {
+      margin-bottom: 0.25rem;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: var(--border-radius);
+      background-color: var(--button-bg-color);
+      color: var(--button-text-color);
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1.5rem;
+    }
+
+    /* Responsive consideration: 
+       The container is already sized in % + max-width, 
+       which is typically enough for a single-column layout. 
+       If you need additional breakpoints, you can add them here. */
+    @media (max-width: 480px) {
+      .page-title {
+        font-size: 1.25rem;
+      }
+      .container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="page-title">Crear nuevo informe</h1>
+    
+    <!-- ID Info -->
+    <div class="id-info">Id. informe: 20939676</div>
+
+    <!-- Título del informe -->
+    <div class="form-group">
+      <label for="titulo">Título del informe:</label>
+      <input 
+        type="text" 
+        id="titulo" 
+        name="titulo" 
+        value="Resonancia Magnética" 
+        readonly 
+      />
+    </div>
+
+    <!-- Descripción -->
+    <div class="form-group">
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" name="descripcion">
+Informe de resonancia magnética solicitada para evaluar posibles lesiones vertebrales, relación con el espacio subaracnoideo y posibles indicios de anomalías. Realizado en el Hospital María Auxiliadora, especialista en Traumatología.
+      </textarea>
+    </div>
+
+    <!-- Observaciones -->
+    <div class="form-group">
+      <label for="observaciones">Observaciones:</label>
+      <textarea id="observaciones" name="observaciones">
+Informe muestra hallazgos sugerentes de compresión medular leve. Se aconseja correlación clínica. El paciente presenta dolor en la región lumbar y se sugiere estudios pertinentes a su cargo.
+      </textarea>
+    </div>
+
+    <!-- Ficheros adjuntos -->
+    <div class="form-group attach-section">
+      <label>Ficheros adjuntos</label>
+      <button type="button" class="attach-btn">Adjuntar Ficheros</button>
+      <ul class="file-list">
+        <li>Imagenes_RMN.pdf</li>
+        <li>Diagnostico_Preliminar.pdf</li>
+        <li>Recomendaciones_Clinicas.pdf</li>
+        <li>Analisis_Comparativo.pdf</li>
+      </ul>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="submit-btn">Enviar</button>
+  </div>
+
+</body>
+</html>

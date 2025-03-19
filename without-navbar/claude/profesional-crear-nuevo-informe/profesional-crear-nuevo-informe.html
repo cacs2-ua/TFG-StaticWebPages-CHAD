@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear nuevo informe</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Global Styles */
+        body {
+            background-color: #e6e6fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        /* Form Container */
+        .form-container {
+            width: 100%;
+            max-width: 30rem;
+            margin: 1rem auto;
+        }
+
+        /* Title Styles */
+        .page-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-decoration: underline;
+        }
+
+        /* Main Form Panel */
+        .form-panel {
+            background-color: #6033b5;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            color: white;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        /* Form ID Display */
+        .form-id {
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 0;
+        }
+
+        /* Required Field Marker */
+        .required::before {
+            content: '*';
+            color: white;
+        }
+
+        /* Form Labels */
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Form Inputs */
+        .form-input {
+            width: 100%;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        /* Textarea */
+        .form-textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            min-height: 5rem;
+            resize: vertical;
+            font-size: 0.9rem;
+        }
+
+        /* Attachments Section */
+        .attachments-section {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .attachments-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* File Button */
+        .file-button {
+            background-color: #a7a7a7;
+            color: black;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .file-button::after {
+            content: ' ▼';
+            font-size: 0.8rem;
+        }
+
+        /* File List */
+        .file-list {
+            background-color: white;
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .file-item {
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+
+        .file-link {
+            color: blue;
+            text-decoration: none;
+        }
+
+        /* Submit Button */
+        .submit-button {
+            background-color: #304cff;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .form-container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="page-title">Crear nuevo informe</h1>
+        
+        <div class="form-panel">
+            <div class="form-id">
+                <span>Id. informe:</span> 20939676
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label required">Título del informe:</label>
+                <input type="text" class="form-input" value="Resonancia Magnética">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label required">Descripción:</label>
+                <textarea class="form-textarea">Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas de sistema músculo-esquelético. Realizado en Hospital Vistahermosa Vithas Alicante por el Dr. Juan Martínez Fernández, especialista en traumatología.</textarea>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Observaciones:</label>
+                <textarea class="form-textarea">El informe muestra hallazgos compatibles con el diagnóstico inicial. Se recomienda seguimiento con exploración clínica y posibles pruebas adicionales si los síntomas persisten o se agravan.</textarea>
+            </div>
+            
+            <div class="attachments-section">
+                <h2 class="attachments-title">Ficheros adjuntos</h2>
+                
+                <div class="file-button">Adjuntar Ficheros</div>
+                
+                <div class="file-list">
+                    <div class="file-item">
+                        <a href="#" class="file-link">Imagenes_RMN.pdf</a>
+                    </div>
+                    <div class="file-item">
+                        <a href="#" class="file-link">Diagnostico_Preliminar.pdf</a>
+                    </div>
+                    <div class="file-item">
+                        <a href="#" class="file-link">Recomendaciones_Clinicas.pdf</a>
+                    </div>
+                    <div class="file-item">
+                        <a href="#" class="file-link">Analisis_Comparativo.pdf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="submit-button">Enviar</button>
+    </div>
+</body>
+</html>
