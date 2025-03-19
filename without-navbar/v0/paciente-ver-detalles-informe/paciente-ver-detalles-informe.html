@@ -114,11 +114,13 @@
       padding: 0.5rem 2rem;
       font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s;
+      /* Modified: Added transform transition */
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .back-button:hover {
       background-color: #3a42cc;
+      transform: scale(1.05);
     }
 
     @media (max-width: 600px) {
