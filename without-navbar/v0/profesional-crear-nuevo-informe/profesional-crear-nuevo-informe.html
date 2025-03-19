@@ -71,15 +71,17 @@
             resize: vertical;
         }
 
+        /* Modified: Underline the entire ID block and combine the text */
         .form-id {
             display: flex;
             margin-bottom: 1rem;
             justify-content: center;
+            text-decoration: underline; /* Underlines all content including spaces */
         }
 
-        .form-id-label {
-            margin-right: 0.5rem;
-            font-weight: bold;
+        /* New combined ID class; the <strong> tag inside ensures bold for "Id. informe:" */
+        .form-id-combined {
+            font-size: 1rem;
         }
 
         /* Attachments section */
@@ -87,6 +89,7 @@
             text-align: center;
             margin-bottom: 1rem;
             font-size: 1.2rem;
+            text-decoration: underline;
         }
 
         .attachment-button {
@@ -96,10 +99,8 @@
             padding: 0.25rem 0.5rem;
             border-radius: 0.25rem;
             cursor: pointer;
-            display: inline-block;
-            margin-bottom: 1rem;
             display: block;
-            margin: 0 auto;
+            margin: 0 auto 1rem;
         }
 
         .attachment-icon {
@@ -163,9 +164,9 @@
     
     <div class="form-container">
         <div class="form-section">
+            <!-- Modified: Combined the ID text into a single span -->
             <div class="form-id">
-                <span class="form-id-label">Id. informe:</span>
-                <span>20939676</span>
+                <span class="form-id-combined"><strong>Id. informe:</strong> 20939676</span>
             </div>
             
             <div class="form-field">
