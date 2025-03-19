@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del informe</title>
+    <style>
+        /* Custom CSS styles */
+        :root {
+            --background-color: #e6e0f3;
+            --card-background: #ffffff;
+            --text-color: #000000;
+            --primary-color: #5246e5;
+            --border-radius: 0.75rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            padding: 1rem;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        .page-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            text-align: center;
+            margin: 1rem 0 1.5rem 0;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .report-id {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .report-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .info-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-label {
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .info-value {
+            flex: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .files-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .file-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .file-link:hover {
+            text-decoration: underline;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .back-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 2rem;
+            padding: 0.5rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #4235c9;
+        }
+
+        @media screen and (max-width: 600px) {
+            .card {
+                padding: 1rem;
+            }
+            
+            .info-row {
+                flex-direction: column;
+                margin-bottom: 0.8rem;
+            }
+            
+            .info-label {
+                margin-bottom: 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <h1 class="page-title">Detalles del informe</h1>
+        
+        <div class="card">
+            <h2 class="report-id">Id. informe: 20939676</h2>
+            
+            <div class="report-content">
+                <div class="info-row">
+                    <span class="info-label">Título:</span>
+                    <span class="info-value">Resonancia Magnética</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Descripción:</span>
+                    <span class="info-value">Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas del sistema músculo-esquelético, realizado en el centro médico Vithas Alicante por el Dr. Juan Martínez Fernández, especialista en Traumatología.</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Observaciones:</span>
+                    <span class="info-value">El informe muestra hallazgos compatibles con el diagnóstico inicial. Se recomienda complementar con exploración clínica y posibles pruebas adicionales si los síntomas persisten o se agravan.</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Fecha:</span>
+                    <span class="info-value">17/12/2024 17:45</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Centro médico:</span>
+                    <span class="info-value">Vithas Alicante</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Profesional médico:</span>
+                    <span class="info-value">Juan Martínez Fernández</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Especialidad médica:</span>
+                    <span class="info-value">Traumatología</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Provincia:</span>
+                    <span class="info-value">Alicante</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Municipio:</span>
+                    <span class="info-value">San Vicente del Raspeig</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Ficheros adjuntos</h2>
+        
+        <div class="card files-section">
+            <a href="#" class="file-link">Imagenes_RMN.pdf</a>
+            <a href="#" class="file-link">Diagnostico_Preliminar.pdf</a>
+            <a href="#" class="file-link">Recomendaciones_Clinicas.pdf</a>
+            <a href="#" class="file-link">Analisis_Comparativo.pdf</a>
+        </div>
+        
+        <div class="button-container">
+            <button class="back-button">Volver</button>
+        </div>
+    </div>
+</body>
+</html>

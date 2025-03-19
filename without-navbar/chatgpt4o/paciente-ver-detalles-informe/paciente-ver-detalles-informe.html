@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del informe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #D6C6F2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .container {
+            background: #F3F0FA;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            font-weight: bold;
+        }
+
+        .files {
+            background: #E8F0FF;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .files a {
+            display: block;
+            color: #2A53D3;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0.5rem 0;
+        }
+
+        .files a:hover {
+            text-decoration: underline;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .button {
+            background: #7851A9;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background: #5B3D8C;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detalles del informe</h1>
+        <h2>Id. informe: <span style="color: #2A53D3;">20939676</span></h2>
+        <p><span class="highlight">Título:</span> Resonancia Magnética</p>
+        <p><span class="highlight">Descripción:</span> Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas del sistema músculo-esquelético, realizado en el centro médico Vithas Alicante por el Dr. Juan Martínez Fernández, especialista en Traumatología.</p>
+        <p><span class="highlight">Observaciones:</span> El informe muestra hallazgos compatibles con el diagnóstico inicial. Se recomienda complementar con exploración clínica y posibles pruebas adicionales si los síntomas persisten o se agravan.</p>
+        <p><span class="highlight">Fecha:</span> 17/12/2024 17:45</p>
+        <p><span class="highlight">Centro médico:</span> Vithas Alicante</p>
+        <p><span class="highlight">Profesional médico:</span> Juan Martínez Fernández</p>
+        <p><span class="highlight">Especialidad médica:</span> Traumatología</p>
+        <p><span class="highlight">Provincia:</span> Alicante</p>
+        <p><span class="highlight">Municipio:</span> San Vicente del Raspeig</p>
+
+        <div class="files">
+            <h2>Ficheros adjuntos</h2>
+            <a href="#">Imagenes_RMN.pdf</a>
+            <a href="#">Diagnostico_Preliminar.pdf</a>
+            <a href="#">Recomendaciones_Clinicas.pdf</a>
+            <a href="#">Analisis_Comparativo.pdf</a>
+        </div>
+
+        <div class="button-container">
+            <a href="#" class="button">Volver</a>
+        </div>
+    </div>
+</body>
+</html>

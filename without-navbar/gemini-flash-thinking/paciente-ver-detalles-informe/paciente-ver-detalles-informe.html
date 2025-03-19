@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del informe</title>
+    <style>
+        /* --- General Styles --- */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .details-container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 700px;
+        }
+
+        /* --- Header Styles --- */
+        .details-title {
+            text-align: center;
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* --- Report ID Styles --- */
+        .report-id {
+            background-color: #e9ecef;
+            color: #555;
+            padding: 0.8rem;
+            border-radius: 0.3rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* --- Report Details Styles --- */
+        .report-details {
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .detail-value {
+            color: #555;
+        }
+
+        /* --- Attachments Section Styles --- */
+        .attachments-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .attachments-title {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 0.8rem;
+        }
+
+        .attachments-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .attachments-list li {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 0.4rem 0.6rem;
+            border-radius: 0.3rem;
+            margin-bottom: 0.3rem;
+            font-size: 0.8rem;
+            color: #007bff;
+        }
+
+        .attachments-list li:hover {
+            background-color: #e9ecef;
+        }
+
+        /* --- Actions Styles --- */
+        .actions {
+            text-align: right;
+        }
+
+        .back-button {
+            background-color: #6c757d;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .details-container {
+                padding: 1.5rem;
+            }
+
+            .details-title {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+
+            .report-id {
+                padding: 0.6rem;
+                margin-bottom: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .detail-item {
+                font-size: 0.8rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .attachments-title {
+                font-size: 1rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .attachments-list li {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.5rem;
+            }
+
+            .back-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="details-container">
+        <h1 class="details-title">Detalles del informe</h1>
+        <div class="report-id">Id. informe: 20939676</div>
+        <div class="report-details">
+            <div class="detail-item">
+                <strong class="detail-label">Título :</strong>
+                <span class="detail-value">Resonancia Magnética</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-label">Descripción :</strong>
+                <span class="detail-value">Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas del sistema músculo - esquelético , realizado en el centro médico Vithas Alicante por el Dr. Juan Martínez Fernández , especialista en Traumatología .</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-label">Observaciones :</strong>
+                <span class="detail-value">El informe muestra hallazgos compatibles con el diagnóstico inicial . Se recomienda complementar con exploración clínica y posibles pruebas adicionales si los síntomas persisten o se agravan .</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-label">Fecha :</strong>
+                <span class="detail-value">17/12/2024 17:45</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-label">Centro médico :</strong>
+                <span class="detail-value">Vithas Alicante</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-label">Profesional médico :</strong>
+                <span class="detail-value">Juan Martínez Fernández</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-label">Especialidad médica :</strong>
+                <span class="detail-value">Traumatología</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-label">Provincia :</strong>
+                <span class="detail-value">Alicante</span>
+            </div>
+            <div class="detail-item">
+                <strong class="detail-label">Municipio :</strong>
+                <span class="detail-value">San Vicente del Raspeig</span>
+            </div>
+        </div>
+        <div class="attachments-section">
+            <h2 class="attachments-title">Ficheros adjuntos</h2>
+            <ul class="attachments-list">
+                <li>Imagenes_RMN.pdf</li>
+                <li>Diagnostico_Preliminar.pdf</li>
+                <li>Recomendaciones_Clinicas.pdf</li>
+                <li>Analisis_Comparativo.pdf</li>
+            </ul>
+        </div>
+        <div class="actions">
+            <button class="back-button">Volver</button>
+        </div>
+    </div>
+</body>
+</html>

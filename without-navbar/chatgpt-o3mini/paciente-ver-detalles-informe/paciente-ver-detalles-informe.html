@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalles del informe</title>
+  <style>
+    /* Global styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      background-color: #f2f2f2;
+      line-height: 1.5;
+    }
+
+    /* Container for centering content */
+    .container {
+      max-width: 50rem; /* Using rem for responsive max width */
+      margin: 1rem auto;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
+    }
+
+    /* Heading for the report */
+    .report-heading {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Each row for labels and values */
+    .report-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    /* Label styling */
+    .label {
+      flex: 0 0 30%;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Value styling */
+    .value {
+      flex: 1;
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+    }
+
+    /* Section for attached files */
+    .files-section {
+      margin-top: 2rem;
+    }
+
+    .files-section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .file-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .file-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    .file-link {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: 500;
+      word-break: break-all; /* helps with very long filenames on small screens */
+    }
+
+    .file-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Button container (for "Volver") */
+    .button-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .back-button {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.25rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .report-row {
+        flex-direction: column;
+      }
+      .label {
+        flex: 0 0 auto;
+      }
+      .value {
+        padding-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="report-heading">Detalles del informe</h1>
+
+    <div class="report-row">
+      <div class="label">Id. informe:</div>
+      <div class="value">20939676</div>
+    </div>
+
+    <div class="report-row">
+      <div class="label">Título:</div>
+      <div class="value">Resonancia Magnética</div>
+    </div>
+
+    <div class="report-row">
+      <div class="label">Descripción:</div>
+      <div class="value">
+        Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas 
+        del sistema músculo-esquelético, realizado en el centro médico Vithas Alicante por 
+        el Dr. Juan Martínez Fernández, especialista en Traumatología.
+      </div>
+    </div>
+
+    <div class="report-row">
+      <div class="label">Observaciones:</div>
+      <div class="value">
+        En el presente informe se incluyen hallazgos compatibles con el diagnóstico inicial. 
+        Se recomienda proceder con exploración clínica y posibles pruebas adicionales para 
+        confirmar el diagnóstico.
+      </div>
+    </div>
+
+    <div class="report-row">
+      <div class="label">Fecha:</div>
+      <div class="value">17/12/2024 17:45</div>
+    </div>
+
+    <div class="report-row">
+      <div class="label">Centro médico:</div>
+      <div class="value">Vithas Alicante</div>
+    </div>
+
+    <div class="report-row">
+      <div class="label">Doctor:</div>
+      <div class="value">Juan Martínez Fernández</div>
+    </div>
+
+    <div class="report-row">
+      <div class="label">Paciente:</div>
+      <div class="value">Alejandro Pineda</div>
+    </div>
+
+    <div class="report-row">
+      <div class="label">Municipio:</div>
+      <div class="value">San Vicente del Raspeig</div>
+    </div>
+
+    <div class="files-section">
+      <h2>Ficheros adjuntos</h2>
+      <ul class="file-list">
+        <li><a href="#" class="file-link">Imagenes_RMN.pdf</a></li>
+        <li><a href="#" class="file-link">Diagnostico_Preliminar.pdf</a></li>
+        <li><a href="#" class="file-link">Recomendaciones_Clinicas.pdf</a></li>
+        <li><a href="#" class="file-link">Analisis_Comparativo.pdf</a></li>
+      </ul>
+    </div>
+
+    <div class="button-container">
+      <a href="#" class="back-button">Volver</a>
+    </div>
+  </div>
+</body>
+</html>

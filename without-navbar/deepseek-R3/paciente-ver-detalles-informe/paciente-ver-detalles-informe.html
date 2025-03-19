@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Informe Médico</title>
+    <style>
+        /* Base styles */
+        :root {
+            font-size: 16px;
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 60rem;
+            margin: 0 auto;
+        }
+
+        /* Card styling */
+        .card {
+            background: white;
+            border-radius: 0.8rem;
+            box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Detail list styling */
+        .detail-list dt {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-top: 1rem;
+        }
+
+        .detail-list dd {
+            margin-left: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        /* File attachments */
+        .file-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .file-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            text-decoration: none;
+            color: var(--primary-color);
+            border-radius: 0.4rem;
+            transition: background-color 0.2s;
+        }
+
+        .file-link:hover {
+            background-color: #f0f0f0;
+        }
+
+        .file-link::before {
+            content: '📄';
+            margin-right: 0.75rem;
+        }
+
+        /* Return button */
+        .return-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.4rem;
+            transition: background-color 0.2s;
+            margin-top: 1rem;
+        }
+
+        .return-button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 48rem) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                width: 100%;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1 class="section-title">Detalles del informe</h1>
+            
+            <dl class="detail-list">
+                <dt>Id. informe:</dt>
+                <dd>20939676</dd>
+
+                <dt>Título:</dt>
+                <dd>Resonancia Magnética</dd>
+
+                <dt>Descripción:</dt>
+                <dd>Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas del sistema músculo-esquelético, realizado en el centro médico Vithas Alicante por el Dr. Juan Martínez Fernández, especialista en Traumatología.</dd>
+
+                <dt>Observaciones:</dt>
+                <dd>El informe muestra hallazgos compatibles con el diagnóstico inicial. Se recomienda complementar con exploración clínica y posibles pruebas adicionales si los síntomas persisten o se agravan.</dd>
+
+                <dt>Fecha:</dt>
+                <dd>17/12/2024 17:45</dd>
+
+                <dt>Centro médico:</dt>
+                <dd>Vithas Alicante</dd>
+
+                <dt>Profesional médico:</dt>
+                <dd>Juan Martínez Fernández</dd>
+
+                <dt>Especialidad médica:</dt>
+                <dd>Traumatología</dd>
+
+                <dt>Provincia:</dt>
+                <dd>Alicante</dd>
+
+                <dt>Municipio:</dt>
+                <dd>San Vicente del Raspeig</dd>
+            </dl>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Ficheros adjuntos</h2>
+            
+            <ul class="file-list">
+                <li><a href="#" class="file-link">Imagenes_RMN.pdf</a></li>
+                <li><a href="#" class="file-link">Diagnostico_Preliminar.pdf</a></li>
+                <li><a href="#" class="file-link">Recomendaciones_Clínicas.pdf</a></li>
+                <li><a href="#" class="file-link">Analisis_Comparativo.pdf</a></li>
+            </ul>
+        </div>
+
+        <div class="text-center">
+            <a href="#" class="return-button">Volver</a>
+        </div>
+    </div>
+</body>
+</html>

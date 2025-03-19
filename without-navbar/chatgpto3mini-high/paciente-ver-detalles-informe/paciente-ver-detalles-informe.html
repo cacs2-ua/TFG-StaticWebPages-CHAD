@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalles del informe</title>
+  <style>
+    /* 
+      ==============
+      GLOBAL STYLES
+      ==============
+    */
+    :root {
+      /* Base font size for easy scaling */
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #f5f5f5; /* Light background */
+      color: #333;
+    }
+
+    /* 
+      ===============
+      LAYOUT CLASSES
+      ===============
+    */
+    .container {
+      max-width: 50rem;  /* Responsive max width using rem */
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 0.25rem rgba(0,0,0,0.1);
+    }
+
+    /* 
+      ==================
+      HEADER & TITLE
+      ==================
+    */
+    .header {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #444;
+    }
+
+    .header p {
+      margin: 0.25rem 0 0 0;
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* 
+      =====================
+      INFORMATION SECTION
+      =====================
+    */
+    .info-section p {
+      margin: 0.5rem 0;
+      line-height: 1.4;
+    }
+
+    .info-section p strong {
+      font-weight: 600;
+    }
+
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .info-row div {
+      flex: 1 1 10rem;
+    }
+
+    /* 
+      =================
+      ATTACHMENTS LIST
+      =================
+    */
+    .attachments h2 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .attachments ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .attachments li {
+      margin-bottom: 0.5rem;
+    }
+
+    .attachments a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    .attachments a:hover {
+      text-decoration: underline;
+    }
+
+    /* 
+      ===============
+      BACK BUTTON
+      ===============
+    */
+    .back-button {
+      text-align: right;
+      margin-top: 1rem;
+    }
+
+    .back-button button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 0.25rem;
+    }
+
+    .back-button button:hover {
+      background-color: #0056b3;
+    }
+
+    /* 
+      ==================
+      MEDIA QUERIES
+      ==================
+    */
+    @media (max-width: 600px) {
+      .info-row {
+        flex-direction: column;
+      }
+      .info-row div {
+        flex: 1 1 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Header / Title -->
+    <div class="header">
+      <h1>Detalles del informe</h1>
+      <p>Id. informe: 20939676</p>
+    </div>
+
+    <!-- Main Information Section -->
+    <div class="card info-section">
+      <p><strong>Título:</strong> Resonancia Magnética</p>
+      <p><strong>Descripción:</strong> Informe de resonancia magnética solicitado para evaluar posibles 
+        lesiones traumáticas del sistema músculo-esquelético, realizado en el centro médico Vithas Alicante 
+        por el Dr. Juan Martínez Fernández, especialista en Traumatología.
+      </p>
+      <p><strong>Observaciones:</strong> El presente informe es completamente compatible con el diagnóstico 
+        inicial. Se recomienda con posterioridad ampliar clínica y posibles pruebas adicionales si fuese necesario.
+      </p>
+      <div class="info-row">
+        <div><strong>Fecha:</strong> 17/12/2024 17:45</div>
+        <div><strong>Centro médico:</strong> Vithas Alicante</div>
+        <div><strong>Doctor:</strong> Juan Martínez Fernández</div>
+        <div><strong>Paciente:</strong> Apellido</div>
+        <div><strong>Municipio:</strong> San Vicente del Raspeig</div>
+      </div>
+    </div>
+
+    <!-- Attachments -->
+    <div class="card attachments">
+      <h2>Ficheros adjuntos</h2>
+      <ul>
+        <li><a href="#">Imagenes_RMN.pdf</a></li>
+        <li><a href="#">Diagnostico_Preliminar.pdf</a></li>
+        <li><a href="#">Recomendaciones_Clinicas.pdf</a></li>
+        <li><a href="#">Analisis_Comparativo.pdf</a></li>
+      </ul>
+    </div>
+
+    <!-- Back Button -->
+    <div class="back-button">
+      <button>Volver</button>
+    </div>
+    
+  </div>
+
+</body>
+</html>

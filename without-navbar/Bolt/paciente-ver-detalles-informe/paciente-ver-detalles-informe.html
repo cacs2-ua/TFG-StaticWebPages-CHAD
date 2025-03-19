@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Informe Médico</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            background-color: #e6e6fa;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Container styles */
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .report-container {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 48rem;
+            padding: 1.5rem;
+        }
+
+        .report-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .report-id {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .report-id span {
+            text-decoration: underline;
+        }
+
+        /* Content styles */
+        .report-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .report-field {
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .report-field strong {
+            font-weight: bold;
+        }
+
+        /* Attachments section */
+        .attachments {
+            margin-top: 3rem;
+        }
+
+        .attachments-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .attachments-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .attachment-link {
+            color: #2563eb;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .attachment-link:hover {
+            color: #1d4ed8;
+        }
+
+        /* Button styles */
+        .button-container {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .back-button {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.5rem 2rem;
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 640px) {
+            .report-field {
+                font-size: 0.875rem;
+            }
+            
+            .report-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">Detalles del informe</h1>
+    
+    <div class="report-container">
+        <div class="report-header">
+            <h2 class="report-id">
+                Id. informe: <span>20939676</span>
+            </h2>
+        </div>
+
+        <div class="report-content">
+            <div class="report-field">
+                <strong>Título:</strong> Resonancia Magnética
+            </div>
+
+            <div class="report-field">
+                <strong>Descripción:</strong> Informe de resonancia magnética solicitado para evaluar posibles lesiones traumáticas del sistema músculo-esquelético, realizado en el centro médico Vithas Alicante por el Dr. Juan Martínez Fernández, especialista en Traumatología.
+            </div>
+
+            <div class="report-field">
+                <strong>Observaciones:</strong> El informe muestra hallazgos compatibles con el diagnóstico inicial. Se recomienda complementar con exploración clínica y posibles pruebas adicionales si los síntomas persisten o se agravan.
+            </div>
+
+            <div class="report-field">
+                <strong>Fecha:</strong> 17/12/2024 17:45
+            </div>
+
+            <div class="report-field">
+                <strong>Centro médico:</strong> Vithas Alicante
+            </div>
+
+            <div class="report-field">
+                <strong>Profesional médico:</strong> Juan Martínez Fernández
+            </div>
+
+            <div class="report-field">
+                <strong>Especialidad médica:</strong> Traumatología
+            </div>
+
+            <div class="report-field">
+                <strong>Provincia:</strong> Alicante
+            </div>
+
+            <div class="report-field">
+                <strong>Municipio:</strong> San Vicente del Raspeig
+            </div>
+        </div>
+
+        <div class="attachments">
+            <h2 class="attachments-title">Ficheros adjuntos</h2>
+            <div class="attachments-list">
+                <a href="#" class="attachment-link">Imagenes_RMN.pdf</a>
+                <a href="#" class="attachment-link">Diagnostico_Preliminar.pdf</a>
+                <a href="#" class="attachment-link">Recomendaciones_Clinicas.pdf</a>
+                <a href="#" class="attachment-link">Analisis_Comparativo.pdf</a>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button class="back-button">Volver</button>
+        </div>
+    </div>
+</body>
+</html>
