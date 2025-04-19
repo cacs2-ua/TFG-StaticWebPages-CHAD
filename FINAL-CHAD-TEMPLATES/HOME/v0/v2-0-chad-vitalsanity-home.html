@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalSanity - La web donde el paciente es el protagonista</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS para consistencia */
+        :root {
+            --color-primary: #1a73e8;
+            --color-secondary: #34a853;
+            --color-accent: #4285f4;
+            --color-light: #f8f9fa;
+            --color-dark: #202124;
+            --color-gray: #5f6368;
+            --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --transition: all 0.3s ease;
+            --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            --border-radius: 0.5rem;
+        }
+
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--color-dark);
+            background-color: var(--color-light);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Contenedor principal */
+        .container {
+            width: 90%;
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Encabezado y navegación */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            padding: 0.5rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .logo-icon {
+            margin-right: 0.5rem;
+            font-size: 1.8rem;
+            color: var(--color-secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -0.25rem;
+            left: 0;
+            width: 0;
+            height: 0.125rem;
+            background-color: var(--color-primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-btn {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-0.125rem);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-dark);
+        }
+
+        /* Sección Hero */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(26, 115, 232, 0.1), rgba(52, 168, 83, 0.1));
+            overflow: hidden;
+            margin-top: 4rem;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 50%;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--color-dark);
+            line-height: 1.2;
+        }
+
+        .hero-slogan {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: var(--color-primary);
+        }
+
+        .hero-text {
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            color: var(--color-gray);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-0.125rem);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            padding: 0.75rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            border: 0.125rem solid var(--color-primary);
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(26, 115, 232, 0.1);
+            transform: translateY(-0.125rem);
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(-50%) translateX(0);
+            }
+            50% {
+                transform: translateY(-52%) translateX(0.5rem);
+            }
+        }
+
+        /* Sección de características */
+        .features {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+            color: var(--color-gray);
+            max-width: 40rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--color-dark);
+        }
+
+        .feature-text {
+            color: var(--color-gray);
+            font-size: 1rem;
+        }
+
+        /* Sección de cómo funciona */
+        .how-it-works {
+            padding: 5rem 0;
+            background-color: var(--color-light);
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+
+        .step {
+            flex: 0 0 30%;
+            text-align: center;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 2.5rem;
+            right: -15%;
+            width: 30%;
+            height: 0.125rem;
+            background-color: var(--color-primary);
+            z-index: 0;
+        }
+
+        .step-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 5rem;
+            height: 5rem;
+            background-color: var(--color-primary);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--color-dark);
+        }
+
+        .step-text {
+            color: var(--color-gray);
+        }
+
+        /* Sección de testimonios */
+        .testimonials {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .testimonials-container {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .testimonials-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            flex: 0 0 100%;
+            padding: 0 1rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--color-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--color-gray);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--color-dark);
+        }
+
+        .testimonial-role {
+            font-size: 0.875rem;
+            color: var(--color-gray);
+        }
+
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.5rem;
+        }
+
+        .testimonial-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--color-primary);
+        }
+
+        /* Sección de llamada a la acción */
+        .cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 40rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background-color: white;
+            color: var(--color-primary);
+            padding: 0.75rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--color-light);
+            transform: translateY(-0.125rem);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+        }
+
+        /* Pie de página */
+        .footer {
+            padding: 3rem 0;
+            background-color: var(--color-dark);
+            color: white;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-text {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 3rem;
+            height: 0.125rem;
+            background-color: var(--color-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-link {
+            color: #aaa;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: white;
+            transform: translateX(0.25rem);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-0.25rem);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 0.0625rem solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.875rem;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(2rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* Media queries para responsividad */
+        @media (max-width: 64rem) {
+            html {
+                font-size: 14px;
+            }
+
+            .hero-content {
+                width: 60%;
+            }
+
+            .hero-image {
+                width: 40%;
+            }
+
+            .step:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 48rem) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.1);
+                z-index: 1001;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+                z-index: 1002;
+            }
+
+            .hero {
+                height: auto;
+                padding: 5rem 0;
+            }
+
+            .hero-content {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-image {
+                position: relative;
+                width: 80%;
+                margin: 3rem auto 0;
+                transform: none;
+                top: auto;
+                right: auto;
+            }
+
+            .steps {
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            .step {
+                flex: 0 0 100%;
+            }
+        }
+
+        @media (max-width: 36rem) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-slogan {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Encabezado y navegación -->
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <i class="fas fa-heartbeat logo-icon"></i>
+                VitalSanity
+            </a>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#" class="nav-link">Inicio</a></li>
+                <li><a href="#features" class="nav-link">Beneficios</a></li>
+                <li><a href="#how-it-works" class="nav-link">Cómo funciona</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonios</a></li>
+                <li><a href="#" class="nav-btn">Iniciar sesión</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Sección Hero -->
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="hero-content animate">
+            <h1 class="hero-title">Tu historial médico centralizado y seguro</h1>
+            <h2 class="hero-slogan">VitalSanity: La web donde el paciente es el protagonista</h2>
+            <p class="hero-text">Toma el control de tu salud permitiendo a los profesionales médicos acceder a tu historial médico completo de forma segura y centralizada.</p>
+            <div class="hero-btns">
+                <a href="#" class="btn-primary">Registrarse</a>
+                <a href="#" class="btn-secondary">Saber más</a>
+            </div>
+        </div>
+        <img src="/placeholder.svg?height=500&width=600" alt="Plataforma VitalSanity en diferentes dispositivos" class="hero-image animate delay-1">
+    </div>
+</section>
+
+<!-- Sección de características -->
+<section class="features" id="features">
+    <div class="container">
+        <h2 class="section-title animate">Beneficios de VitalSanity</h2>
+        <p class="section-subtitle animate delay-1">Descubre cómo VitalSanity está transformando la experiencia médica para pacientes y profesionales.</p>
+        <div class="features-grid">
+            <div class="feature-card animate delay-1">
+                <i class="fas fa-lock feature-icon"></i>
+                <h3 class="feature-title">Seguridad Garantizada</h3>
+                <p class="feature-text">Tu información médica está protegida con los más altos estándares de seguridad y encriptación.</p>
+            </div>
+            <div class="feature-card animate delay-2">
+                <i class="fas fa-user-md feature-icon"></i>
+                <h3 class="feature-title">Control Total</h3>
+                <p class="feature-text">Tú decides qué profesionales médicos pueden acceder a tu historial y por cuánto tiempo.</p>
+            </div>
+            <div class="feature-card animate delay-3">
+                <i class="fas fa-history feature-icon"></i>
+                <h3 class="feature-title">Historial Completo</h3>
+                <p class="feature-text">Toda tu información médica en un solo lugar, accesible cuando la necesites.</p>
+            </div>
+            <div class="feature-card animate delay-1">
+                <i class="fas fa-mobile-alt feature-icon"></i>
+                <h3 class="feature-title">Acceso Móvil</h3>
+                <p class="feature-text">Accede a tu información desde cualquier dispositivo, en cualquier momento y lugar.</p>
+            </div>
+            <div class="feature-card animate delay-2">
+                <i class="fas fa-hospital feature-icon"></i>
+                <h3 class="feature-title">Conexión con Centros Médicos</h3>
+                <p class="feature-text">Integración con hospitales y clínicas para mantener tu historial siempre actualizado.</p>
+            </div>
+            <div class="feature-card animate delay-3">
+                <i class="fas fa-notes-medical feature-icon"></i>
+                <h3 class="feature-title">Recordatorios Médicos</h3>
+                <p class="feature-text">Recibe alertas sobre citas, medicamentos y seguimiento de tratamientos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de cómo funciona -->
+<section class="how-it-works" id="how-it-works">
+    <div class="container">
+        <h2 class="section-title animate">¿Cómo funciona?</h2>
+        <p class="section-subtitle animate delay-1">En tres sencillos pasos, comienza a gestionar tu historial médico de forma eficiente.</p>
+        <div class="steps">
+            <div class="step animate delay-1">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Regístrate</h3>
+                <p class="step-text">Crea tu cuenta en VitalSanity y verifica tu identidad para garantizar la seguridad.</p>
+            </div>
+            <div class="step animate delay-2">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Sube tu historial</h3>
+                <p class="step-text">Importa tus documentos médicos o conecta con tus centros de salud para sincronizar automáticamente.</p>
+            </div>
+            <div class="step animate delay-3">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Gestiona los accesos</h3>
+                <p class="step-text">Otorga permisos a los profesionales médicos que necesiten consultar tu historial.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de testimonios -->
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <h2 class="section-title animate">Lo que dicen nuestros usuarios</h2>
+        <p class="section-subtitle animate delay-1">Descubre cómo VitalSanity ha mejorado la experiencia médica de pacientes y profesionales.</p>
+        <div class="testimonials-container animate delay-2">
+            <div class="testimonials-slider" id="testimonials-slider">
+                <div class="testimonial">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Gracias a VitalSanity, mi médico pudo acceder a mi historial completo durante una emergencia. Esto le permitió tomar decisiones informadas rápidamente, lo que posiblemente me salvó la vida."</p>
+                        <div class="testimonial-author">
+                            <img src="/placeholder.svg?height=100&width=100" alt="Foto de María García" class="testimonial-avatar">
+                            <div>
+                                <h4 class="testimonial-name">María García</h4>
+                                <p class="testimonial-role">Paciente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Como cardiólogo, VitalSanity me ha permitido tener una visión completa del historial de mis pacientes, incluyendo tratamientos previos y medicaciones. Esto ha mejorado significativamente la calidad de atención que puedo ofrecer."</p>
+                        <div class="testimonial-author">
+                            <img src="/placeholder.svg?height=100&width=100" alt="Foto del Dr. Javier Martínez" class="testimonial-avatar">
+                            <div>
+                                <h4 class="testimonial-name">Dr. Javier Martínez</h4>
+                                <p class="testimonial-role">Cardiólogo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"La facilidad para compartir mi historial médico con especialistas ha reducido drásticamente el tiempo de diagnóstico. Ya no tengo que repetir pruebas ni llevar carpetas de documentos a cada consulta."</p>
+                        <div class="testimonial-author">
+                            <img src="/placeholder.svg?height=100&width=100" alt="Foto de Carlos Rodríguez" class="testimonial-avatar">
+                            <div>
+                                <h4 class="testimonial-name">Carlos Rodríguez</h4>
+                                <p class="testimonial-role">Paciente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-controls" id="testimonial-controls">
+                <div class="testimonial-dot active" data-index="0"></div>
+                <div class="testimonial-dot" data-index="1"></div>
+                <div class="testimonial-dot" data-index="2"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de llamada a la acción -->
+<section class="cta">
+    <div class="container">
+        <h2 class="cta-title animate">Comienza a gestionar tu salud hoy mismo</h2>
+        <p class="cta-text animate delay-1">Únete a miles de pacientes que ya han tomado el control de su historial médico con VitalSanity.</p>
+        <a href="#" class="cta-btn animate delay-2">Registrarse gratis</a>
+    </div>
+</section>
+
+<!-- Pie de página -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    VitalSanity
+                </div>
+                <p class="footer-text">La plataforma donde el paciente es el protagonista de su historial médico, permitiendo un acceso seguro y centralizado para profesionales de la salud.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-title">Enlaces rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Inicio</a></li>
+                    <li><a href="#features" class="footer-link">Beneficios</a></li>
+                    <li><a href="#how-it-works" class="footer-link">Cómo funciona</a></li>
+                    <li><a href="#testimonials" class="footer-link">Testimonios</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Servicios</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Historial médico</a></li>
+                    <li><a href="#" class="footer-link">Gestión de permisos</a></li>
+                    <li><a href="#" class="footer-link">Conexión con centros</a></li>
+                    <li><a href="#" class="footer-link">Recordatorios</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Contacto</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">soporte@vitalsanity.com</a></li>
+                    <li><a href="#" class="footer-link">+34 912 345 678</a></li>
+                    <li><a href="#" class="footer-link">Calle Principal 123, Madrid</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 VitalSanity. Todos los derechos reservados.
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    // Menú móvil
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuToggle.innerHTML = navMenu.classList.contains('active')
+            ? '<i class="fas fa-times"></i>'
+            : '<i class="fas fa-bars"></i>';
+    });
+
+    // Encabezado con scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Slider de testimonios
+    const slider = document.getElementById('testimonials-slider');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        currentSlide = index;
+    }
+
+    dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+            const index = parseInt(dot.getAttribute('data-index'));
+            showSlide(index);
+        });
+    });
+
+    // Cambiar slide automáticamente cada 5 segundos
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % dots.length;
+        showSlide(currentSlide);
+    }, 5000);
+
+    // Animación al hacer scroll
+    const animateElements = document.querySelectorAll('.animate');
+
+    function checkScroll() {
+        animateElements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (elementPosition < windowHeight - 100) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    }
+
+    // Inicializar animaciones
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
+
+    // Inicializar el primer slide
+    showSlide(0);
+</script>
+</body>
+</html>
