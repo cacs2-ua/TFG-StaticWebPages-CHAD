@@ -122,53 +122,11 @@
     </style>
 </head>
 <body>
-<!-- Header -->
-<header class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md py-2" id="header">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center">
-                <i data-lucide="activity" class="h-8 w-8 text-purple-600"></i>
-                <span class="ml-2 text-xl font-bold text-gray-800">VitalSanity</span>
-            </div>
 
-            <button
-                    class="md:hidden text-gray-700 hover:text-purple-600 focus:outline-none"
-                    onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"
-            >
-                <i data-lucide="menu" class="h-6 w-6"></i>
-            </button>
-
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#inicio" class="text-gray-700 hover:text-purple-600 transition duration-300">Inicio</a>
-                <a href="#beneficios" class="text-gray-700 hover:text-purple-600 transition duration-300">Beneficios</a>
-                <a href="#como-funciona" class="text-gray-700 hover:text-purple-600 transition duration-300">Cómo Funciona</a>
-                <a href="#testimonios" class="text-gray-700 hover:text-purple-600 transition duration-300">Testimonios</a>
-                <a href="#contacto" class="text-gray-700 hover:text-purple-600 transition duration-300">Contacto</a>
-                <a href="#registro" class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition duration-300">
-                    Registrarse
-                </a>
-            </nav>
-        </div>
-
-        <!-- Mobile menu -->
-        <nav id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
-            <div class="flex flex-col space-y-4">
-                <a href="#inicio" class="text-gray-700 hover:text-purple-600 transition duration-300">Inicio</a>
-                <a href="#beneficios" class="text-gray-700 hover:text-purple-600 transition duration-300">Beneficios</a>
-                <a href="#como-funciona" class="text-gray-700 hover:text-purple-600 transition duration-300">Cómo Funciona</a>
-                <a href="#testimonios" class="text-gray-700 hover:text-purple-600 transition duration-300">Testimonios</a>
-                <a href="#contacto" class="text-gray-700 hover:text-purple-600 transition duration-300">Contacto</a>
-                <a href="#registro" class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition duration-300 inline-block">
-                    Registrarse
-                </a>
-            </div>
-        </nav>
-    </div>
-</header>
 
 <main>
     <!-- Hero Section -->
-    <section id="inicio" class="relative pt-24 pb-20 md:py-32 overflow-hidden">
+    <section id="inicio" class="relative pt-12 pb-20 md:py-24 overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img
                     src="https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg"
@@ -810,17 +768,6 @@
         this.reset();
     });
 
-    // Handle header background on scroll
-    window.addEventListener('scroll', function() {
-        const header = document.getElementById('header');
-        if (window.scrollY > 10) {
-            header.classList.add('bg-white', 'shadow-md', 'py-2');
-            header.classList.remove('bg-transparent', 'py-4');
-        } else {
-            header.classList.remove('bg-white', 'shadow-md', 'py-2');
-            header.classList.add('bg-transparent', 'py-4');
-        }
-    });
 </script>
 </body>
 </html>
