@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitalSanity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Variables CSS para fácil gestión de colores y fuentes */
+    :root {
+      --primary-color: #2e7d32; /* Verde Vital */
+      --secondary-color: #1565c0; /* Azul Sanidad */
+      --accent-color: #ffb300; /* Amarillo Vital */
+      --text-color: #333;
+      --light-bg: #f1f8e9; /* Fondo verde muy claro */
+      --dark-bg: #1b5e20; /* Fondo verde oscuro */
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+      --spacing-unit: 1rem; /* Unidad base para espaciado */
+    }
+
+    /* Estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden; /* Prevenir scroll horizontal */
+      background-color: #fff;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 120rem; /* Ancho máximo del contenido */
+      margin: 0 auto;
+      padding: calc(2 * var(--spacing-unit)) 0;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      color: var(--dark-bg);
+      margin-bottom: var(--spacing-unit);
+    }
+
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 2rem; }
+
+    p {
+      margin-bottom: var(--spacing-unit);
+      font-size: 1.1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--secondary-color);
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: var(--text-color);
+      padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 1.5);
+      border-radius: 0.5rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .btn:hover {
+      background-color: #ffc107; /* Tono más claro */
+      transform: translateY(-0.2rem);
+    }
+
+    /* Header */
+    .header {
+      background-color: #fff;
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--spacing-unit) 0;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 2.5rem; /* Tamaño del icono/logo */
+      margin-right: 0.5rem;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-item {
+      margin-left: calc(var(--spacing-unit) * 1.5);
+    }
+
+    .nav-link {
+      color: var(--text-color);
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.5rem;
+      width: 0;
+      height: 0.2rem;
+      background-color: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover; /* Imagen de fondo placeholder */
+      text-align: center;
+      padding: calc(var(--spacing-unit) * 8) 0;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-content {
+      max-width: 80rem;
+    }
+
+    .slogan {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--dark-bg);
+      margin-bottom: calc(var(--spacing-unit) * 2);
+      text-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+      animation: fadeInScale 1.5s ease-out;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: calc(var(--spacing-unit) * 3);
+      color: var(--text-color);
+    }
+
+    /* Sections */
+    .section {
+      padding: calc(var(--spacing-unit) * 4) 0;
+      text-align: center;
+    }
+
+    .section:nth-child(even) {
+      background-color: var(--light-bg);
+    }
+
+    .section-title {
+      font-size: 3rem;
+      margin-bottom: calc(var(--spacing-unit) * 3);
+      color: var(--dark-bg);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -1rem;
+      transform: translateX(-50%);
+      width: 6rem;
+      height: 0.3rem;
+      background-color: var(--accent-color);
+      border-radius: 0.2rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+      gap: calc(var(--spacing-unit) * 2);
+      margin-top: calc(var(--spacing-unit) * 3);
+    }
+
+    .feature {
+      background-color: #fff;
+      padding: calc(var(--spacing-unit) * 2);
+      border-radius: 0.8rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    }
+
+    .feature i { /* Iconos */
+      font-size: 3rem;
+      color: var(--secondary-color);
+      margin-bottom: var(--spacing-unit);
+    }
+
+    .feature h3 {
+      color: var(--primary-color);
+    }
+
+    /* Image Gallery */
+    .image-gallery .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      gap: var(--spacing-unit);
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 0.8rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .gallery-item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(46, 125, 50, 0.3); /* Overlay */
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 1;
+    }
+
+    .gallery-item:hover::before {
+      opacity: 1;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+
+    /* Footer */
+    .footer {
+      background-color: var(--dark-bg);
+      color: var(--light-bg);
+      padding: calc(var(--spacing-unit) * 3) 0;
+      text-align: center;
+    }
+
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer p {
+      margin-bottom: var(--spacing-unit);
+      font-size: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      margin-bottom: var(--spacing-unit);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links li {
+      margin: 0 var(--spacing-unit);
+    }
+
+    .footer-links a {
+      color: var(--light-bg);
+      font-weight: 400;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 76.8rem) { /* Equivalente a 768px */
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
+      h3 { font-size: 1.7rem; }
+
+      .nav-menu {
+        flex-direction: column;
+        text-align: center;
+        margin-top: var(--spacing-unit);
+        display: none; /* Ocultar menú por defecto en móviles */
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-item {
+        margin: var(--spacing-unit) 0;
+      }
+
+      .hero {
+        padding: calc(var(--spacing-unit) * 6) 0;
+      }
+
+      .slogan {
+        font-size: 3rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-gallery .container {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 48rem) { /* Equivalente a 480px */
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.8rem; }
+      h3 { font-size: 1.5rem; }
+
+      .logo {
+        font-size: 1.8rem;
+      }
+
+      .logo img {
+        height: 2rem;
+      }
+
+      .hero {
+        padding: calc(var(--spacing-unit) * 4) 0;
+        min-height: auto;
+      }
+
+      .slogan {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-unit);
+      }
+
+      .hero p {
+        font-size: 1rem;
+        margin-bottom: calc(var(--spacing-unit) * 2);
+      }
+
+      .btn {
+        padding: calc(var(--spacing-unit) * 0.6) var(--spacing-unit);
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Mobile Menu Toggle - Basic implementation hint */
+    .menu-toggle {
+      display: none; /* Ocultar por defecto en desktop */
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+
+    @media (max-width: 76.8rem) {
+      .menu-toggle {
+        display: block; /* Mostrar en móviles */
+      }
+
+      .header .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-menu {
+        width: 100%;
+      }
+
+      .nav-item {
+        width: 100%;
+        text-align: center;
+        margin: var(--spacing-unit) 0;
+      }
+
+      .nav-link {
+        display: block;
+        padding: var(--spacing-unit) 0;
+        border-bottom: 0.1rem solid rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-link::after {
+        display: none; /* Ocultar subrayado en menú móvil */
+      }
+    }
+
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <i class="fas fa-heartbeat"></i> VitalSanity
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li class="nav-item"><a href="#beneficios" class="nav-link">Beneficios</a></li>
+        <li class="nav-item"><a href="#galeria" class="nav-link">Galería</a></li>
+        <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <h1 class="slogan">VitalSanity: La web donde el paciente es el protagonista</h1>
+    <p>Centraliza tu historial médico y toma el control de tu salud.</p>
+    <a href="#" class="btn">Únete hoy mismo</a>
+  </div>
+</section>
+
+<section id="servicios" class="section">
+  <div class="container">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <p>VitalSanity te ofrece una plataforma segura y fácil de usar para gestionar tu información médica.</p>
+    <div class="features-grid">
+      <div class="feature">
+        <i class="fas fa-file-medical"></i>
+        <h3>Historial Médico Centralizado</h3>
+        <p>Accede a todos tus informes, resultados de pruebas y diagnósticos en un solo lugar.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-user-md"></i>
+        <h3>Acceso Controlado para Profesionales</h3>
+        <p>Autoriza a tus médicos y especialistas a ver tu historial de forma segura y temporal.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Seguridad y Privacidad Garantizadas</h3>
+        <p>Tus datos están protegidos con las más altas medidas de seguridad.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Acceso Desde Cualquier Dispositivo</h3>
+        <p>Gestiona tu salud desde tu ordenador, tablet o teléfono móvil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beneficios" class="section">
+  <div class="container">
+    <h2 class="section-title">Beneficios para Ti</h2>
+    <p>Con VitalSanity, tú tienes el control de tu bienestar.</p>
+    <div class="features-grid">
+      <div class="feature">
+        <i class="fas fa-hand-holding-heart"></i>
+        <h3>Empoderamiento del Paciente</h3>
+        <p>Sé el dueño de tu información médica y participa activamente en tus decisiones de salud.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-notes-medical"></i>
+        <h3>Mejor Coordinación Médica</h3>
+        <p>Facilita que tus profesionales tengan una visión completa para diagnósticos más precisos.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-clock"></i>
+        <h3>Ahorro de Tiempo y Esfuerzo</h3>
+        <p>Olvídate de buscar papeles o repetir información en cada consulta.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-chart-line"></i>
+        <h3>Seguimiento de Tu Progreso</h3>
+        <p>Visualiza la evolución de tu salud a lo largo del tiempo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="section image-gallery">
+  <div class="container">
+    <h2 class="section-title">Visualiza VitalSanity</h2>
+    <div class="image-gallery .container"> <div class="gallery-item">
+      <img src="https://via.placeholder.com/600x400?text=Interfaz+Paciente" alt="Interfaz de paciente VitalSanity">
+    </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/600x400?text=Panel+Profesional" alt="Panel de profesional VitalSanity">
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/600x400?text=Seguridad+Datos" alt="Seguridad de datos en VitalSanity">
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/600x400?text=Acceso+M%C3%B3vil" alt="Acceso móvil a VitalSanity">
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto" class="footer">
+  <div class="container">
+    <p>&copy; 2023 VitalSanity. Todos los derechos reservados.</p>
+    <ul class="footer-links">
+      <li><a href="#">Política de Privacidad</a></li>
+      <li><a href="#">Términos de Servicio</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Contáctanos</a></li>
+    </ul>
+    <p>Email: info@vitalsanity.com | Teléfono: +34 123 456 789</p>
+  </div>
+</footer>
+
+<script>
+  // Script básico para el toggle del menú en móviles
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  // Cerrar menú al hacer clic en un enlace en móviles
+  const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

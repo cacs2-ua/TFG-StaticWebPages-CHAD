@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitalSanity - Salud Centralizada</title>
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --secondary-color: #2ecc71;
+      --accent-color: #e74c3c;
+      --light-color: #f5f5f5;
+      --dark-color: #333333;
+      --shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 75rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .header.scrolled {
+      padding: 0.5rem 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(0.5rem);
+    }
+
+    .header.scrolled .nav-link {
+      color: var(--dark-color);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      margin-right: 0.5rem;
+      font-size: 1.8rem;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-item {
+      margin-left: 1.5rem;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--light-color);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0.15rem;
+      background: var(--accent-color);
+      bottom: -0.25rem;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(52, 152, 219, 0.7), rgba(46, 204, 113, 0.7)), url('/api/placeholder/1200/600') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding-top: 4rem;
+    }
+
+    .hero-content {
+      max-width: 50rem;
+      padding: 2rem;
+      color: white;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-slogan {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+      text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+      margin: 0.5rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-0.25rem);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 0.125rem solid white;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 5rem;
+      height: 0.25rem;
+      background: var(--primary-color);
+      bottom: -0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 1rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .how-it-works {
+      background-color: #f9f9f9;
+    }
+
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 60rem;
+      margin: 0 auto;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      width: 100%;
+    }
+
+    .step-number {
+      background-color: var(--primary-color);
+      color: white;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      flex-grow: 1;
+    }
+
+    .step-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonials {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+    }
+
+    .testimonials-slider {
+      max-width: 50rem;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-slides {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .testimonial {
+      min-width: 100%;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .testimonial-content {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 1rem;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .testimonial-content::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 1rem 1rem 0 1rem;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0.1) transparent transparent transparent;
+    }
+
+    .testimonial-author {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .author-image {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+      border: 0.2rem solid white;
+    }
+
+    .author-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author-name {
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .slider-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .slider-btn:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      margin: 0 0.25rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background-color: white;
+    }
+
+    .cta {
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 50rem;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-text {
+      margin-bottom: 2rem;
+    }
+
+    .footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-link {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-link a {
+      color: #bbbbbb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link a:hover {
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-0.25rem);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.875rem;
+      color: #bbbbbb;
+    }
+
+    .floating-element {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 100;
+    }
+
+    .chat-bubble {
+      width: 4rem;
+      height: 4rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .chat-bubble:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 48rem) {
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        margin-bottom: 1rem;
+      }
+
+      .mobile-toggle {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+      }
+
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+      }
+
+      .nav-list.active {
+        display: flex;
+      }
+
+      .nav-item {
+        margin: 0.5rem 0;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-slogan {
+        font-size: 1.25rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .step-number {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(2rem); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .animate-fade-in {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    .animate-pulse {
+      animation: pulse 2s infinite;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
+  </style>
+</head>
+<body>
+<header class="header" id="header">
+  <div class="container header-content">
+    <a href="#" class="logo">
+      <span class="logo-icon">💙</span>VitalSanity
+    </a>
+    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <nav>
+      <ul class="nav-list" id="navList">
+        <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
+        <li class="nav-item"><a href="#caracteristicas" class="nav-link">Características</a></li>
+        <li class="nav-item"><a href="#como-funciona" class="nav-link">Cómo Funciona</a></li>
+        <li class="nav-item"><a href="#testimonios" class="nav-link">Testimonios</a></li>
+        <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title animate-fade-in">VitalSanity</h1>
+    <p class="hero-slogan animate-fade-in delay-1">VitalSanity: La web donde el paciente es el protagonista</p>
+    <p class="hero-description animate-fade-in delay-2">Centraliza tu historial médico y compártelo con los profesionales de la salud de forma segura y eficiente.</p>
+    <div class="animate-fade-in delay-3">
+      <a href="#" class="btn animate-pulse">Crear Cuenta</a>
+      <a href="#" class="btn btn-outline">Saber Más</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="caracteristicas">
+  <div class="container">
+    <h2 class="section-title">Nuestras Características</h2>
+    <div class="features">
+      <div class="feature-card animate-fade-in">
+        <div class="feature-icon">🔒</div>
+        <h3 class="feature-title">Seguridad Máxima</h3>
+        <p>Tu información médica protegida con los más altos estándares de seguridad y cifrado.</p>
+      </div>
+      <div class="feature-card animate-fade-in delay-1">
+        <div class="feature-icon">📱</div>
+        <h3 class="feature-title">Acceso Desde Cualquier Dispositivo</h3>
+        <p>Consulta y comparte tu historial médico desde cualquier lugar a través de nuestra plataforma responsive.</p>
+      </div>
+      <div class="feature-card animate-fade-in delay-2">
+        <div class="feature-icon">👨‍⚕️</div>
+        <h3 class="feature-title">Control Total</h3>
+        <p>Decide qué profesionales pueden acceder a tu información y por cuánto tiempo.</p>
+      </div>
+      <div class="feature-card animate-fade-in delay-3">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">Análisis de Datos</h3>
+        <p>Visualiza tendencias en tu salud y recibe recomendaciones personalizadas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section how-it-works" id="como-funciona">
+  <div class="container">
+    <h2 class="section-title">Cómo Funciona</h2>
+    <div class="steps">
+      <div class="step animate-fade-in">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3 class="step-title">Crea tu Cuenta</h3>
+          <p>Regístrate en nuestra plataforma con un proceso sencillo y rápido. Solo necesitarás tu correo electrónico y datos básicos.</p>
+        </div>
+      </div>
+      <div class="step animate-fade-in delay-1">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3 class="step-title">Sube tu Historial Médico</h3>
+          <p>Importa documentos, informes y resultados de pruebas para centralizar toda tu información médica en un solo lugar.</p>
+        </div>
+      </div>
+      <div class="step animate-fade-in delay-2">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3 class="step-title">Gestiona los Permisos</h3>
+          <p>Otorga acceso a los profesionales de la salud que elijas, definiendo qué información pueden ver y por cuánto tiempo.</p>
+        </div>
+      </div>
+      <div class="step animate-fade-in delay-3">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3 class="step-title">Mejora tu Atención Médica</h3>
+          <p>Disfruta de consultas más eficientes y diagnósticos más precisos al proporcionar a tus médicos una visión completa de tu historial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials" id="testimonios">
+  <div class="container">
+    <h2 class="section-title">Lo que Dicen Nuestros Usuarios</h2>
+    <div class="testimonials-slider">
+      <div class="testimonial-slides" id="testimonialSlides">
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"VitalSanity ha transformado la forma en que gestiono mi salud. Ya no tengo que llevar carpetas de documentos a cada cita médica, ¡todo está digitalizado y accesible!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-image">
+              <img src="/api/placeholder/200/200" alt="María López">
+            </div>
+            <div class="author-name">María López</div>
+            <div class="author-title">Paciente</div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"Como médico, tener acceso al historial completo de mis pacientes me permite ofrecer un diagnóstico más preciso y un tratamiento más efectivo. VitalSanity es una herramienta esencial."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-image">
+              <img src="/api/placeholder/200/200" alt="Dr. Carlos Martínez">
+            </div>
+            <div class="author-name">Dr. Carlos Martínez</div>
+            <div class="author-title">Cardiólogo</div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"La facilidad de uso y la seguridad que ofrece VitalSanity son incomparables. Puedo controlar quién ve mi información médica y me siento tranquila sabiendo que está protegida."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-image">
+              <img src="/api/placeholder/200/200" alt="Ana Rodríguez">
+            </div>
+            <div class="author-name">Ana Rodríguez</div>
+            <div class="author-title">Paciente</div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn" id="prevBtn">❮</button>
+        <button class="slider-btn" id="nextBtn">❯</button>
+      </div>
+      <div class="slider-dots" id="sliderDots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta" id="contacto">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title animate-fade-in">Únete a VitalSanity Hoy</h2>
+      <p class="cta-text animate-fade-in delay-1">Toma el control de tu salud y mejora la comunicación con tus profesionales médicos. Registrarte es fácil y rápido.</p>
+      <div class="animate-fade-in delay-2">
+        <a href="#" class="btn animate-pulse">Comenzar Ahora</a>
+        <a href="#" class="btn btn-outline">Contactar con Soporte</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3>VitalSanity</h3>
+        <p>La web donde el paciente es el protagonista. Centraliza y controla tu historial médico de forma segura.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📱</a>
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">🎬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Enlaces Rápidos</h3>
+        <ul class="footer-links">
+          <li class="footer-link"><a href="#">Inicio</a></li>
+          <li class="footer-link"><a href="#caracteristicas">Características</a></li>
+          <li class="footer-link"><a href="#como-funciona">Cómo Funciona</a></li>
+          <li class="footer-link"><a href="#testimonios">Testimonios</a></li>
+          <li class="footer-link"><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Soporte</h3>
+        <ul class="footer-links">
+          <li class="footer-link"><a href="#">Centro de Ayuda</a></li>
+          <li class="footer-link"><a href="#">FAQ</a></li>
+          <li class="footer-link"><a href="#">Contacto</a></li>
+          <li class="footer-link"><a href="#">Política de Privacidad</a></li>
+          <li class="footer-link"><a href="#">Términos de Servicio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contacto</h3>
+        <ul class="footer-links">
+          <li class="footer-link">📞 +34 912 345 678</li>
+          <li class="footer-link">✉️ info@vitalsanity.es</li>
+          <li class="footer-link">🏢 Calle Principal 123, Madrid</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2025 VitalSanity. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+<div class="floating-element">
+  <div class="chat-bubble" id="chatButton">💬</div>
+</div>
+
+<script>
+  // Navegación móvil
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navList = document.getElementById('navList');
+
+  mobileToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
+
+  // Cambiar header al hacer scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Carrusel de testimonios
+  const testimonialSlides = document.getElementById('testimonialSlides');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dots = document.querySelectorAll('.dot');
+  let currentSlide = 0;
+  const totalSlides = document.querySelectorAll('.testimonial').length;
+
+  function showSlide(index) {
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+
+    currentSlide = index;
+    testimonialSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    // Actualizar dots
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => {
+    showSlide(currentSlide - 1);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    showSlide(currentSlide + 1);
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const slideIndex = parseInt(dot.dataset.index);
+      showSlide(slideIndex);
+    });
+  });
+
+  // Carrusel automático
+  setInterval(() => {
+    showSlide(currentSlide + 1);
+  }, 5000);
+
+  // Animaciones al hacer scroll
+  const animatedElements = document.querySelectorAll('.animate-fade-in');
+
+  const checkInView = () => {
+    animatedElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (elementTop < windowHeight - 50) {
+        element.style.animationPlayState = 'running';
+      }
+    });
+  };

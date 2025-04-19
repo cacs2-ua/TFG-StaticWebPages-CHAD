@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitalSanity - Tu Salud, Tu Control</title>
+  <style>
+    /* --- Variables CSS Globales --- */
+    :root {
+      --primary-color: #007bff; /* Azul vibrante y confiable */
+      --secondary-color: #28a745; /* Verde saludable */
+      --accent-color: #17a2b8; /* Turquesa claro para detalles */
+      --light-color: #f8f9fa; /* Fondo claro */
+      --dark-color: #343a40; /* Texto oscuro */
+      --white-color: #ffffff;
+      --gray-color: #6c757d; /* Texto secundario */
+
+      --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente limpia y moderna */
+      --font-secondary: 'Georgia', serif; /* Para el eslogan, algo más distintivo */
+
+      --base-font-size: 1rem; /* Equivalente a 16px por defecto */
+      --h1-font-size: calc(var(--base-font-size) * 2.8);
+      --h2-font-size: calc(var(--base-font-size) * 2.2);
+      --h3-font-size: calc(var(--base-font-size) * 1.5);
+      --small-font-size: calc(var(--base-font-size) * 0.85);
+
+      --standard-padding: 1.5rem;
+      --section-padding: 4rem 0;
+      --card-padding: 1.5rem;
+      --button-padding: 0.75rem 1.5rem;
+
+      --border-radius: 0.5rem;
+      --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      --transition-speed: 0.3s ease;
+    }
+
+    /* --- Reset Básico y Estilos Globales --- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 100%; /* Establece la base para rem */
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      font-size: var(--base-font-size);
+      line-height: 1.6;
+      color: var(--dark-color);
+      background-color: var(--white-color); /* Fondo blanco principal */
+      overflow-x: hidden; /* Evita scroll horizontal */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex-grow: 1; /* Asegura que el main ocupe el espacio disponible */
+    }
+
+    h1, h2, h3 {
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+
+    h1 { font-size: var(--h1-font-size); color: var(--primary-color); }
+    h2 { font-size: var(--h2-font-size); color: var(--dark-color); text-align: center; }
+    h3 { font-size: var(--h3-font-size); color: var(--primary-color); }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--gray-color);
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+
+    a:hover {
+      color: var(--secondary-color);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* --- Clases de Utilidad --- */
+    .container {
+      width: 90%;
+      max-width: 1200px; /* Límite máximo para pantallas grandes */
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--standard-padding);
+      padding-right: var(--standard-padding);
+    }
+
+    .section-padding {
+      padding: var(--section-padding);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-primary { color: var(--primary-color); }
+    .text-secondary { color: var(--secondary-color); }
+    .text-light { color: var(--light-color); }
+    .text-dark { color: var(--dark-color); }
+    .text-white { color: var(--white-color); }
+
+    .bg-light { background-color: var(--light-color); }
+    .bg-primary { background-color: var(--primary-color); }
+    .bg-dark { background-color: var(--dark-color); }
+
+    /* --- Botones --- */
+    .button {
+      display: inline-block;
+      padding: var(--button-padding);
+      font-size: var(--base-font-size);
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background-color var(--transition-speed), transform var(--transition-speed);
+      letter-spacing: 0.05rem;
+    }
+
+    .button-primary {
+      background-color: var(--primary-color);
+      color: var(--white-color);
+    }
+
+    .button-primary:hover {
+      background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+      color: var(--white-color);
+      transform: translateY(-2px); /* Ligero efecto de elevación */
+    }
+
+    .button-secondary {
+      background-color: var(--secondary-color);
+      color: var(--white-color);
+    }
+
+    .button-secondary:hover {
+      background-color: #1e7e34; /* Verde más oscuro al pasar el ratón */
+      color: var(--white-color);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+
+    .button-outline:hover {
+      background-color: var(--primary-color);
+      color: var(--white-color);
+      transform: translateY(-2px);
+    }
+
+    /* --- Navbar / Header --- */
+    .navbar {
+      background: linear-gradient(90deg, rgba(0,123,255,0.95) 0%, rgba(23,162,184,0.95) 100%);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      font-size: calc(var(--base-font-size) * 1.8);
+      font-weight: bold;
+      color: var(--white-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .navbar-brand:hover {
+      color: var(--light-color); /* Ligero cambio al pasar el ratón */
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem; /* Espacio entre enlaces */
+    }
+
+    .nav-links a {
+      color: var(--white-color);
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: color var(--transition-speed);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--secondary-color);
+      transition: width var(--transition-speed);
+    }
+
+    .nav-links a:hover {
+      color: var(--light-color);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: none; /* Oculto en escritorio */
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0.5rem;
+    }
+
+    .nav-toggle .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      transition: all 0.3s ease-in-out;
+      background-color: var(--white-color);
+    }
+
+
+    /* --- Hero Section --- */
+    .hero {
+      min-height: 90vh; /* Altura mínima relativa al viewport */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white-color);
+      position: relative;
+      overflow: hidden; /* Para contener pseudo-elementos */
+      padding: 4rem 0;
+      background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+      /* Imagen de fondo relevante */
+    }
+
+    .hero::before { /* Capa oscura para mejorar legibilidad */
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 50, 100, 0.7); /* Superposición azul oscuro semi-transparente */
+      z-index: 1;
+    }
+
+    .hero .container {
+      position: relative; /* Para estar sobre la capa ::before */
+      z-index: 2;
+      animation: fadeInHero 1s ease-out forwards;
+    }
+
+    .hero-slogan {
+      font-family: var(--font-secondary);
+      font-size: calc(var(--h1-font-size) * 1.2); /* Slogan más grande */
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: var(--white-color); /* Asegurar contraste */
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para destacar */
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: calc(var(--base-font-size) * 1.3);
+      margin-bottom: 2.5rem;
+      color: var(--light-color);
+      max-width: 70ch; /* Limitar ancho para legibilidad */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero .button {
+      margin-top: 1rem;
+      padding: calc(var(--button-padding) * 1.2) calc(var(--button-padding) * 2); /* Botón más grande */
+      font-size: calc(var(--base-font-size) * 1.1);
+    }
+
+    /* --- Sección "Cómo Funciona" --- */
+    .how-it-works {
+      background-color: var(--light-color);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .step-card {
+      background-color: var(--white-color);
+      padding: var(--card-padding);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      text-align: center;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+      border-left: 5px solid var(--accent-color); /* Detalle visual */
+      animation: fadeInCard 0.5s ease-out forwards;
+      opacity: 0; /* Inicialmente invisible para animación */
+    }
+
+    /* Animación escalonada para las tarjetas */
+    .step-card:nth-child(1) { animation-delay: 0.2s; }
+    .step-card:nth-child(2) { animation-delay: 0.4s; }
+    .step-card:nth-child(3) { animation-delay: 0.6s; }
+
+
+    .step-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.15);
+    }
+
+    .step-icon {
+      font-size: 3rem; /* Iconos más grandes */
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+      /* Placeholder para icono - puedes usar Font Awesome o SVGs */
+      display: inline-block; /* Para centrar */
+    }
+
+    .step-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    /* --- Sección Beneficios --- */
+    .benefits {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+      color: var(--white-color);
+    }
+
+    .benefits h2 {
+      color: var(--white-color); /* Título claro sobre fondo oscuro */
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start; /* Alinear icono arriba */
+      gap: 1.5rem;
+      animation: fadeInSlideUp 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* Animación escalonada */
+    .benefit-item:nth-child(1) { animation-delay: 0.1s; }
+    .benefit-item:nth-child(2) { animation-delay: 0.3s; }
+    .benefit-item:nth-child(3) { animation-delay: 0.5s; }
+    .benefit-item:nth-child(4) { animation-delay: 0.7s; }
+
+
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: var(--secondary-color); /* Iconos verdes */
+      flex-shrink: 0; /* Evita que el icono se encoja */
+      background-color: var(--white-color);
+      padding: 0.75rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .benefit-item h3 {
+      color: var(--white-color); /* Títulos claros */
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit-item p {
+      color: var(--light-color); /* Texto más claro */
+      margin-bottom: 0;
+    }
+
+    /* --- Sección Imagen + Texto (Ej: Seguridad) --- */
+    .image-text-section {
+      display: grid;
+      grid-template-columns: 1fr; /* Una columna por defecto (móvil) */
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .image-text-section img {
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      animation: zoomIn 0.7s ease-out forwards;
+      opacity: 0;
+    }
+
+    .image-text-content {
+      animation: fadeInSlideRight 0.7s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.2s; /* Retrasar animación del texto */
+    }
+
+    .image-text-content h2 {
+      text-align: left; /* Alinear título a la izquierda en esta sección */
+      margin-bottom: 1rem;
+    }
+
+    .image-text-content ul {
+      list-style: disc; /* Viñetas simples */
+      margin-left: 1.5rem;
+      padding-left: 0.5rem;
+      color: var(--gray-color);
+    }
+
+    .image-text-content ul li {
+      margin-bottom: 0.75rem;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      background-color: var(--dark-color);
+      color: var(--light-color);
+      padding: 2rem 0;
+      margin-top: auto; /* Empuja el footer al final si el contenido es corto */
+      text-align: center;
+    }
+
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap; /* Para que los enlaces pasen a la siguiente línea si no caben */
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: var(--gray-color);
+      font-size: var(--small-font-size);
+      transition: color var(--transition-speed);
+    }
+
+    .footer-links a:hover {
+      color: var(--white-color);
+    }
+
+    .footer p {
+      font-size: var(--small-font-size);
+      color: var(--gray-color);
+      margin-bottom: 0;
+    }
+
+    /* --- Animaciones --- */
+    @keyframes fadeInHero {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes fadeInSlideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInSlideRight {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* --- Media Queries para Responsividad --- */
+
+    /* Tabletas y pantallas pequeñas (>= 768px) */
+    @media (min-width: 768px) {
+      :root {
+        --h1-font-size: calc(var(--base-font-size) * 3.5);
+        --h2-font-size: calc(var(--base-font-size) * 2.5);
+      }
+
+      .container {
+        width: 85%;
+      }
+
+      .hero-slogan {
+        font-size: calc(var(--h1-font-size) * 1.1);
+      }
+
+      .hero-subtitle {
+        font-size: calc(var(--base-font-size) * 1.5);
+      }
+
+      /* Mostrar nav links y ocultar toggle */
+      .nav-links {
+        display: flex;
+      }
+      .nav-toggle {
+        display: none;
+      }
+
+      .image-text-section {
+        grid-template-columns: 1fr 1fr; /* Dos columnas */
+      }
+
+      /* Opcional: Invertir orden de imagen y texto en filas alternas */
+      .image-text-section.reverse .image-text-image {
+        order: 2; /* Mover imagen a la derecha */
+      }
+      .image-text-section.reverse .image-text-content {
+        order: 1; /* Mover texto a la izquierda */
+      }
+    }
+
+    /* Pantallas medianas (>= 992px) */
+    @media (min-width: 992px) {
+      :root {
+        --h1-font-size: calc(var(--base-font-size) * 4);
+        --h2-font-size: calc(var(--base-font-size) * 2.8);
+      }
+      .container {
+        width: 80%;
+      }
+
+      .hero {
+        min-height: 95vh;
+      }
+    }
+
+
+    /* Móviles (< 768px) - Ajustes específicos si no se hizo Mobile First */
+    @media (max-width: 767px) {
+      .navbar .container {
+        flex-wrap: wrap; /* Permitir que el logo y el menú se apilen */
+      }
+
+      .nav-toggle {
+        display: block; /* Mostrar botón hamburguesa */
+        order: 1; /* Ponerlo al final */
+      }
+
+      .nav-links {
+        display: none; /* Ocultar menú por defecto */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0, 90, 180, 0.9); /* Fondo semi-transparente para el menú desplegado */
+        position: absolute;
+        top: 100%; /* Justo debajo del navbar */
+        left: 0;
+        padding: 1rem 0;
+        gap: 1rem;
+        border-top: 1px solid var(--accent-color);
+      }
+
+      .nav-links.active {
+        display: flex; /* Mostrar menú cuando está activo */
+      }
+
+      .nav-links a::after {
+        display: none; /* Ocultar subrayado animado en móvil */
+      }
+
+      .hero {
+        min-height: 80vh;
+        text-align: center;
+      }
+
+      .hero-slogan {
+        font-size: calc(var(--h1-font-size) * 0.9); /* Reducir un poco en móvil */
+      }
+
+      .hero-subtitle {
+        font-size: calc(var(--base-font-size) * 1.1);
+      }
+
+      .steps-grid, .benefits-grid {
+        grid-template-columns: 1fr; /* Forzar una sola columna */
+      }
+
+      .image-text-section img {
+        margin-bottom: 2rem; /* Espacio entre imagen y texto en móvil */
+      }
+      .image-text-content h2 {
+        text-align: center; /* Centrar título en móvil */
+      }
+
+      .footer .container {
+        flex-direction: column;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <a href="#" class="navbar-brand">VitalSanity</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav class="nav-links" id="nav-links">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#como-funciona">Cómo Funciona</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#seguridad">Seguridad</a></li>
+        <li><a href="#">Acceder</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="container">
+      <h1 class="hero-slogan">VitalSanity: La web donde el paciente es el protagonista</h1>
+      <p class="hero-subtitle">Centraliza tu historial médico y comparte tu información de forma segura y sencilla con los profesionales que elijas. Tú tienes el control.</p>
+      <a href="#" class="button button-secondary">Regístrate Gratis</a>
+      <a href="#" class="button button-outline">Más Información</a>
+    </div>
+  </section>
+
+  <section class="how-it-works section-padding" id="como-funciona">
+    <div class="container">
+      <h2>¿Cómo Funciona VitalSanity?</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-icon">👤</div> <h3>1. Regístrate</h3>
+          <p>Crea tu cuenta segura en minutos y empieza a construir tu perfil de salud.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">📁</div> <h3>2. Centraliza tu Historial</h3>
+          <p>Añade tus informes, resultados y conecta con fuentes de datos médicas compatibles.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">🔑</div> <h3>3. Concede Acceso</h3>
+          <p>Invita a tus médicos y profesionales de confianza a ver tu historial cuando lo necesites.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits section-padding" id="beneficios">
+    <div class="container">
+      <h2>Beneficios Clave</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">✅</div> <div>
+          <h3>Control Total del Paciente</h3>
+          <p>Tú decides quién accede a tu información y durante cuánto tiempo.</p>
+        </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🔄</div> <div>
+          <h3>Historial Centralizado</h3>
+          <p>Toda tu información médica relevante en un único lugar seguro.</p>
+        </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">⏱️</div> <div>
+          <h3>Acceso Rápido para Profesionales</h3>
+          <p>Facilita a tus médicos una visión completa y actualizada de tu salud.</p>
+        </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🔒</div> <div>
+          <h3>Seguridad Avanzada</h3>
+          <p>Protegemos tus datos con los más altos estándares de seguridad y privacidad.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="image-text-section section-padding" id="seguridad">
+    <div class="container">
+      <div class="image-text-section reverse"> <div class="image-text-image">
+        <img src="https://images.unsplash.com/photo-1584824486509-112e4181ff6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="Persona usando un portátil con candado de seguridad digital">
+      </div>
+        <div class="image-text-content">
+          <h2>Tu Privacidad es Nuestra Prioridad</h2>
+          <p>En VitalSanity, entendemos la sensibilidad de tu información médica. Por eso implementamos:</p>
+          <ul>
+            <li>Encriptación de datos en reposo y en tránsito.</li>
+            <li>Autenticación multifactor opcional.</li>
+            <li>Auditorías de seguridad regulares.</li>
+            <li>Cumplimiento con normativas de protección de datos (RGPD).</li>
+          </ul>
+          <a href="#" class="button button-primary" style="margin-top: 1.5rem;">Conoce Nuestras Medidas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="#">Política de Privacidad</a>
+      <a href="#">Términos de Uso</a>
+      <a href="#">Contacto</a>
+      <a href="#">FAQ</a>
+    </div>
+    <p>&copy; <span id="current-year"></span> VitalSanity. Todos los derechos reservados.</p>
+    <p>VitalSanity: La web donde el paciente es el protagonista.</p>
+  </div>
+</footer>
+
+<script>
+  // Script para el menú hamburguesa en móvil
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+
+  // Script para actualizar el año del copyright
+  const currentYearSpan = document.getElementById('current-year');
+  if (currentYearSpan) {
+    currentYearSpan.textContent = new Date().getFullYear();
+  }
+
+  // Script para cerrar menú al hacer clic en un enlace (opcional)
+  const navLinkItems = document.querySelectorAll('.nav-links a');
+  navLinkItems.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+      }
+    });
+  });
+
+  // Script para animación 'fade-in' al hacer scroll (opcional, más avanzado)
+  const animatedElements = document.querySelectorAll('.step-card, .benefit-item, .image-text-section img, .image-text-content');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Añade una clase o activa la animación directamente
+        // Aquí usamos la animación definida en CSS
+        entry.target.style.opacity = 1; // Asegura que sea visible
+        // entry.target.classList.add('visible'); // Si prefieres usar clases
+        observer.unobserve(entry.target); // Deja de observar una vez animado
+      }
+    });
+  }, {
+    threshold: 0.1 // Se activa cuando el 10% del elemento es visible
+  });
+
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+
+</script>
+
+</body>
+</html>

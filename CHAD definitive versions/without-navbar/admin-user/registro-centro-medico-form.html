@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        /* Body styles */
+        .page-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #DBD5FF;
+            padding: 20px;
+        }
+
+        /* form container */
+        .form-container {
+            background-color: #6528BF;
+            padding: 40px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form title */
+        .form-title {
+            color: #FFFFFF;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 500;
+            text-decoration: underline;
+        }
+
+        /* Form group */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Labels */
+        .form-label {
+            display: block;
+            color: #F5F3FF;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Input fields */
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #f5f5f5;
+            font-size: 14px;
+        }
+
+        /* Submit button */
+        .submit-button {
+            background-color: #F5F3FF;
+            color: #717171;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            float: right;
+            transition: background-color 0.2s;
+        }
+
+        .submit-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            .form-title {
+                font-size: 24px;
+            }
+
+            .form-label {
+                font-size: 14px;
+            }
+
+            .submit-button {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="form-container">
+        <h1 class="form-title">Registrar un nuevo centro médico</h1>
+        <form>
+            <div class="form-group">
+                <label class="form-label" for="medical-center-name">Nombre del centro médico*</label>
+                <input type="text" id="medical-center-name" class="form-input" required placeholder="Centro Médico Adeslas">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="nif">NIF*</label>
+                <input type="text" id="nif" class="form-input" required placeholder="B12345678">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="phone-number">Móvil*</label>
+                <input type="text" id="phone-number" class="form-input" required placeholder="+34 647239815">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="provincia">Provincia*</label>
+                <input type="text" id="provincia" class="form-input" required placeholder="Alicante">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="municipio">Municipio*</label>
+                <input type="text" id="municipio" class="form-input" required placeholder="San Vicente del raspeig">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="codigo-postal">Código Postal*</label>
+                <input type="text" id="codigo-postal" class="form-input" required placeholder="03690">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="email">Email*</label>
+                <input type="text" id="email" class="form-input" required placeholder="adeslas@gmail.com">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="iban">IBAN*</label>
+                <input type="text" id="iban" class="form-input" required placeholder="ES87 3183 4033 1194 3731 1211">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="address">Dirección*</label>
+                <input type="text" id="address" class="form-input" required placeholder="Calle Pablo Iglesias Nº 27">
+            </div>
+
+            <button type="submit" class="submit-button">Aceptar</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

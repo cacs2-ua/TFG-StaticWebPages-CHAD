@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitalSanity</title>
+  <style>
+    :root {
+      --primary-color: #0d9488;
+      --accent-color: #0f766e;
+      --text-color: #ffffff;
+      --bg-color: #f0fdfa;
+      --shadow-color: rgba(0, 0, 0, 0.2);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: var(--text-color);
+      box-shadow: 0 0.5rem 1rem var(--shadow-color);
+    }
+
+    .slogan {
+      font-size: 2rem;
+      margin-top: 1rem;
+      animation: fadeIn 3s ease;
+    }
+
+    .container {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 0.3rem 0.6rem var(--shadow-color);
+      width: 80%;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.8rem;
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      margin-top: 1rem;
+      color: var(--primary-color);
+    }
+
+    .card-text {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: 100%;
+      }
+
+      .card {
+        width: 95%;
+      }
+
+      .slogan {
+        font-size: 1.5rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--accent-color);
+      color: var(--text-color);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+<header class="header">
+  <h1>VitalSanity</h1>
+  <div class="slogan">“VitalSanity: La web donde el paciente es el protagonista”</div>
+</header>
+
+<section class="container">
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=60" alt="Historial Médico">
+    <div class="card-title">Historial Médico Centralizado</div>
+    <div class="card-text">
+      Gestiona y controla quién accede a tus datos médicos en un único lugar seguro y fácil de utilizar.
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1631217868264-48a343c67c4e?auto=format&fit=crop&w=900&q=60" alt="Profesionales de la salud">
+    <div class="card-title">Conexión con Profesionales</div>
+    <div class="card-text">
+      Autoriza de forma sencilla y segura a los profesionales médicos para visualizar tu historial clínico.
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464?auto=format&fit=crop&w=900&q=60" alt="Control Total">
+    <div class="card-title">Control Total del Paciente</div>
+    <div class="card-text">
+      Tú decides qué profesionales pueden acceder y qué información pueden consultar en cada momento.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  &copy; 2025 VitalSanity. Todos los derechos reservados.
+</footer>
+</body>
+</html>

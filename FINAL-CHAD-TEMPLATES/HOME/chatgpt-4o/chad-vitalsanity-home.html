@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VitalSanity</title>
+  <style>
+    :root {
+      --primary-color: #00b894;
+      --secondary-color: #0984e3;
+      --bg-color: #f9f9f9;
+      --text-color: #2d3436;
+      --accent-color: #ffeaa7;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .header {
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 4vh 5vw;
+      text-align: center;
+      animation: fadeInDown 1.5s ease-in-out;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .slogan {
+      font-size: 1.8rem;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 2rem;
+      display: inline-block;
+      animation: pulse 2.5s infinite;
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      padding: 5vw;
+      align-items: center;
+    }
+
+    .section {
+      background-color: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .section:hover {
+      transform: scale(1.03);
+    }
+
+    .section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 2rem;
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-color);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 3rem 5vw;
+      font-size: 0.9rem;
+      color: #636e72;
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-5rem);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <h1>VitalSanity</h1>
+  <div class="slogan">“VitalSanity: La web donde el paciente es el protagonista”</div>
+</header>
+
+<main class="main">
+  <section class="section">
+    <img src="https://images.unsplash.com/photo-1588776814546-ec9ef831e5cb?auto=format&fit=crop&w=800&q=80" alt="Consulta médica" />
+    <h2>Accede a tu historial clínico</h2>
+    <p>Con VitalSanity, tus datos médicos están siempre disponibles, seguros y bajo tu control.</p>
+    <a href="#" class="btn">Saber más</a>
+  </section>
+
+  <section class="section">
+    <img src="https://images.unsplash.com/photo-1588776814473-dc3f522a2b97?auto=format&fit=crop&w=800&q=80" alt="Profesionales médicos" />
+    <h2>Profesionales verificados</h2>
+    <p>Concede acceso temporal a tus datos solo a profesionales autorizados y mantén el control.</p>
+    <a href="#" class="btn">Ver beneficios</a>
+  </section>
+
+  <section class="section">
+    <img src="https://images.unsplash.com/photo-1597764699510-78e5e3b2e458?auto=format&fit=crop&w=800&q=80" alt="Paciente con móvil" />
+    <h2>Todo desde tu dispositivo</h2>
+    <p>Consulta, comparte y gestiona tu información médica desde cualquier lugar y en cualquier momento.</p>
+    <a href="#" class="btn">Comenzar</a>
+  </section>
+</main>
+
+<footer class="footer">
+  &copy; 2025 VitalSanity. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>

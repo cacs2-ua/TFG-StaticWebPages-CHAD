@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitalSanity</title>
+  <style>
+    /* Variables de tema */
+    :root {
+      --primary-color: #2a9d8f;
+      --secondary-color: #264653;
+      --accent-color: #e9c46a;
+      --light-color: #f4f4f4;
+      --dark-color: #1d3557;
+      --font-sans: 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    /* Reset y configuración base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: var(--font-sans);
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+    .container {
+      width: 90%;
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Navegación */
+    nav {
+      background: var(--light-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .logo {
+      font-size: 2rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .menu-toggle {
+      display: block;
+      width: 2rem;
+      height: 1.5rem;
+      position: relative;
+      cursor: pointer;
+    }
+    .menu-toggle input {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 0.25rem;
+      background: var(--secondary-color);
+      border-radius: 0.125rem;
+      position: absolute;
+      transition: transform 0.3s ease;
+    }
+    .menu-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+    .menu-toggle span:nth-child(1) { top: 0; }
+    .menu-toggle span:nth-child(3) { bottom: 0; }
+    .menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+    .menu a {
+      padding: 0.75rem 0;
+      text-decoration: none;
+      color: var(--dark-color);
+    }
+    .menu-toggle input:checked ~ .menu {
+      display: flex;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      background: url('https://source.unsplash.com/featured/?health,wellness') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      top: 0;
+      left: 0;
+    }
+    .hero-content {
+      position: relative;
+      color: var(--light-color);
+      text-align: center;
+      padding: 1rem;
+      animation: fadeIn 2s ease-out;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(1rem); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sección de Funciones */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      gap: 2rem;
+      padding: 4rem 0;
+    }
+    .feature-card {
+      background: var(--light-color);
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0 1rem 1.5rem rgba(0,0,0,0.15);
+    }
+    .feature-card img {
+      width: 100%;
+      height: auto;
+    }
+    .feature-content {
+      padding: 1.5rem;
+    }
+    .feature-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+    .feature-content p {
+      font-size: 1rem;
+    }
+
+    /* Llamada a la acción */
+    .cta {
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .cta-button {
+      background: var(--accent-color);
+      color: var(--dark-color);
+      padding: 1rem 2rem;
+      font-size: 1.25rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Pie de página */
+    footer {
+      background: var(--secondary-color);
+      color: var(--light-color);
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+    footer p {
+      font-size: 0.875rem;
+    }
+
+    /* Adaptaciones para pantallas más grandes */
+    @media (min-width: 48rem) {
+      .menu {
+        flex-direction: row;
+        display: flex !important;
+      }
+      .menu-toggle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navegación -->
+  <nav>
+    <div class="container navbar">
+      <a href="#" class="logo">VitalSanity</a>
+      <div class="menu-toggle">
+        <input type="checkbox">
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="menu">
+          <a href="#hero">Inicio</a>
+          <a href="#features">Funciones</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <div class="hero-content container">
+      <h1>VitalSanity</h1>
+      <p>La web donde el paciente es el protagonista</p>
+    </div>
+  </section>
+
+  <!-- Funciones -->
+  <section id="features" class="container features">
+    <div class="feature-card">
+      <img src="https://source.unsplash.com/featured/?doctor" alt="Acceso médico">
+      <div class="feature-content">
+        <h3>Acceso Médico</h3>
+        <p>Conecta tus profesionales de salud con tu historial integral.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <img src="https://source.unsplash.com/featured/?security" alt="Seguridad de datos">
+      <div class="feature-content">
+        <h3>Seguridad de Datos</h3>
+        <p>Protección avanzada para tu información.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <img src="https://source.unsplash.com/featured/?analytics" alt="Historial centralizado">
+      <div class="feature-content">
+        <h3>Historial Centralizado</h3>
+        <p>Todos tus registros en un único lugar accesible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Llamada a la acción -->
+  <section class="cta container">
+    <button class="cta-button">Empieza Ahora</button>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>© 2025 VitalSanity. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

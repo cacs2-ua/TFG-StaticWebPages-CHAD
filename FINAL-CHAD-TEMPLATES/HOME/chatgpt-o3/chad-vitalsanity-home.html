@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VitalSanity | La web donde el paciente es el protagonista</title>
+  <style>
+    :root {
+      --primary-color: #37b4aa;
+      --secondary-color: #ff6b6b;
+      --dark-color: #042a2b;
+      --light-color: #f4fdfd;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      color: var(--dark-color);
+      background: var(--light-color);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 85rem;
+      margin: 0 auto;
+    }
+
+    /* ---------- HEADER ---------- */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(4, 42, 43, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav a {
+      color: var(--light-color);
+      text-decoration: none;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 0%;
+      height: 0.2rem;
+      background: var(--secondary-color);
+      transition: width 0.3s;
+    }
+
+    .nav a:hover::after,
+    .nav a:focus::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 0.3rem;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 1.5rem;
+      height: 0.2rem;
+      background: var(--light-color);
+      transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 48rem) {
+      .nav {
+        position: absolute;
+        top: 4rem;
+        right: 0;
+        flex-direction: column;
+        background: rgba(4, 42, 43, 0.95);
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .nav.open {
+        max-height: 20rem;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url("https://images.unsplash.com/photo-1600423115367-a034a333d46b?auto=format&fit=crop&w=2100&q=80")
+      center/cover no-repeat fixed;
+      position: relative;
+      color: var(--light-color);
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(4, 42, 43, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .hero-content p {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 2rem;
+      font-size: 1rem;
+      background: var(--secondary-color);
+      color: var(--light-color);
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      transform: translateY(-0.2rem);
+      box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-1rem);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---------- SECTIONS ---------- */
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section:nth-of-type(even) {
+      background: #e8f9f9;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--primary-color);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--light-color);
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 5rem;
+      height: 5rem;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+    }
+
+    .testimonials {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .testimonial {
+      max-width: 40rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial p {
+      font-style: italic;
+    }
+
+    .testimonial span {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      background: var(--dark-color);
+      color: var(--light-color);
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    /* ---------- SCROLL TOP BUTTON ---------- */
+    .scroll-top {
+      position: fixed;
+      right: 2%;
+      bottom: 5%;
+      width: 3rem;
+      height: 3rem;
+      background: var(--primary-color);
+      color: var(--light-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    .scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ---------- FORM OVERRIDES ---------- */
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.4rem 0 1rem;
+      border-radius: 0.5rem;
+      border: 0.06rem solid #ccc;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+<header class="header">
+  <a href="#" class="logo">VitalSanity</a>
+  <nav class="nav" id="nav-menu">
+    <a href="#que-es" tabindex="0">¿Qué es?</a>
+    <a href="#beneficios" tabindex="0">Beneficios</a>
+    <a href="#testimonios" tabindex="0">Testimonios</a>
+    <a href="#contacto" tabindex="0">Contacto</a>
+  </nav>
+  <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>VitalSanity</h1>
+    <p><strong>“VitalSanity: La web donde el paciente es el protagonista”</strong></p>
+    <a href="#que-es" class="btn">Conoce más</a>
+  </div>
+</section>
+
+<section class="section" id="que-es">
+  <div class="container">
+    <h2>¿Qué es VitalSanity?</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=400&q=80" alt="Centralización" />
+        <h3>Historia clínica centralizada</h3>
+        <p>
+          Toda tu información médica en un único lugar accesible para los profesionales que tú autorices.
+        </p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1607748851161-40f4d0397872?auto=format&fit=crop&w=400&q=80" alt="Seguridad" />
+        <h3>Seguridad y privacidad</h3>
+        <p>
+          Tus datos están protegidos con cifrado de última generación y control de permisos granular.
+        </p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1606813906373-67c69e2ad36e?auto=format&fit=crop&w=400&q=80" alt="Acceso" />
+        <h3>Acceso inmediato</h3>
+        <p>Comparte tu historial con un clic y recibe atención más rápida y precisa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="beneficios">
+  <div class="container">
+    <h2>Beneficios para pacientes y profesionales</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Para pacientes</h3>
+        <p>
+          Empoderamiento total sobre tu salud, seguimiento integral y menor duplicidad de pruebas.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Para profesionales</h3>
+        <p>
+          Información completa al instante, mejores diagnósticos y ahorro de tiempo administrativo.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Para clínicas</h3>
+        <p>
+          Integración sencilla con sistemas existentes y cumplimiento normativo asegurado.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="testimonios">
+  <div class="container">
+    <h2>Testimonios</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>
+          “Gracias a VitalSanity mi médico tuvo toda mi historia clínica y evitamos repetir análisis.”
+        </p>
+        <span>— Laura G.</span>
+      </div>
+      <div class="testimonial">
+        <p>
+          “Puedo revisar la evolución de mis pacientes sin pedirles que busquen antiguas pruebas.”
+        </p>
+        <span>— Dr. Martín Ruiz</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contacto">
+  <div class="container">
+    <h2>Contacto</h2>
+    <form class="contact-form">
+      <label for="nombre">Nombre</label><br />
+      <input id="nombre" name="nombre" type="text" />
+      <label for="email">Correo electrónico</label><br />
+      <input id="email" name="email" type="email" />
+      <label for="mensaje">Mensaje</label><br />
+      <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>
+    &copy; <span id="year"></span> VitalSanity — Todos los derechos reservados.
+  </p>
+  <p><a href="#inicio">Volver arriba</a></p>
+</footer>
+
+<div class="scroll-top" id="scroll-top" aria-label="Volver arriba">↑</div>
+
+<script>
+  /* ---------- MENU TOGGLE ---------- */
+  const menuToggle = document.getElementById("menu-toggle");
+  const navMenu = document.getElementById("nav-menu");
+
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+    menuToggle.classList.toggle("open");
+  });
+
+  document.querySelectorAll(".nav a").forEach((link) => {
+    link.addEventListener("click", () => navMenu.classList.remove("open"));
+  });
+
+  /* ---------- HEADER BACKGROUND ON SCROLL ---------- */
+  const header = document.querySelector(".header");
+  window.addEventListener("scroll", () => {
+    header.style.background =
+            window.scrollY > 1 ? "rgba(4,42,43,0.9)" : "rgba(4,42,43,0.4)";
+  });
+
+  /* ---------- SCROLL TOP BUTTON ---------- */
+  const scrollBtn = document.getElementById("scroll-top");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollBtn.classList.add("show");
+    } else {
+      scrollBtn.classList.remove("show");
+    }
+  });
+
+  scrollBtn.addEventListener("click", () =>
+          window.scrollTo({ top: 0, behavior: "smooth" })
+  );
+
+  /* ---------- CURRENT YEAR ---------- */
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
